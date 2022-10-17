@@ -11,7 +11,7 @@ public let kDocumentPath = NSSearchPathForDirectoriesInDomains(.documentDirector
 
 public let kCachePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
 
-public let keyWindow: UIWindow? = {
+public let kWindow: UIWindow? = {
     var window: UIWindow?
     if #available(iOS 13.0, *) {
         for window in UIApplication.shared.windows {
