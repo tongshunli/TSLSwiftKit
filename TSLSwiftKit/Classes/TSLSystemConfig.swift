@@ -29,6 +29,8 @@ public let KAppDelegate = UIApplication.shared.delegate
 
 public let kAppCurrentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") // 获取当前版本号
 
+public let kAppName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") // app名称
+
 public let kSystemVersion = UIDevice.current.systemVersion // 获取设备系统号
 
 public let kIsIphone = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? true : false // iphone设备

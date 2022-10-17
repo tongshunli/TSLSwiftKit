@@ -23,3 +23,7 @@ public func kColorWithRGB16(_ h: Int, a: CGFloat) ->UIColor {
     return kColorRGBAlpha(CGFloat(((h)>>16) & 0xFF), g: CGFloat(((h)>>8) & 0xFF), b: CGFloat((h) & 0xFF), a: a)
 }
 
+public let kClearColor = UIColor.clear
+
+public let kWhiteColor = UIColor.white
+
