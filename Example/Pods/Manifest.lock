@@ -16,7 +16,7 @@ PODS:
     - iOSSnapshotTestCase (~> 8.0)
     - Nimble
   - Quick (2.2.1)
-  - TSLSwiftKit (0.1.3)
+  - TSLSwiftKit (0.1.5)
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
@@ -43,7 +43,7 @@ SPEC CHECKSUMS:
   Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
   Nimble-Snapshots: ef281b908c604f78c8313587e25ea92c8ab513d7
   Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
-  TSLSwiftKit: 9d6bf02bd9d8c113876dbd4837b6b3f0ee785b5f
+  TSLSwiftKit: 5cf32ef1e759cf4ace1d5fdd18f2640c1f044328
 
 PODFILE CHECKSUM: d475d1010c130656042d253d499be06ee6acf22f
 
