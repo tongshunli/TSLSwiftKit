@@ -12,24 +12,28 @@ public let kDocumentPath = NSSearchPathForDirectoriesInDomains(.documentDirector
 public let kCachePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
 
 public let kWindow: UIWindow? = {
-    var window: UIWindow?
-    if #available(iOS 13.0, *) {
-        for window in UIApplication.shared.windows {
-            if window.isHidden == false {
-                return window
-            }
-        }
+    var originalKeyWindow: UIWindow?
+
+    #if swift(>=5.1)
+    if #available(iOS 13, *) {
+        originalKeyWindow = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first(where: { $0.isKeyWindow })
     } else {
-        window = UIApplication.shared.keyWindow
+        originalKeyWindow = UIApplication.shared.keyWindow
     }
-    return window
+    #else
+    originalKeyWindow = UIApplication.shared.keyWindow
+    #endif
+    return originalKeyWindow
 }()
 
 public let KAppDelegate = UIApplication.shared.delegate
 
 public let kAppCurrentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") // 获取当前版本号
 
-public let kAppName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") // app名称
+public let kAppName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") ?? "" // app名称
 
 public let kSystemVersion = UIDevice.current.systemVersion // 获取设备系统号
 
