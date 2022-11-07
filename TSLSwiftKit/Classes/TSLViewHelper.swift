@@ -63,21 +63,6 @@ public class TSLViewHelper: NSObject {
         return floor((string as! NSString).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: contentFont, .paragraphStyle: paragraphStyle], context: nil).width) + kQuarterMargin
     }
     
-    
-    public class func setStateBarLightStyle() {
-        UIApplication.shared.isStatusBarHidden = false
-        UIApplication.shared.statusBarStyle = .lightContent
-    }
-    
-    public class func setStateBarDefaultStyle() {
-        UIApplication.shared.isStatusBarHidden = false
-        if #available(iOS 13.0, *) {
-            UIApplication.shared.statusBarStyle = .darkContent
-        } else {
-            UIApplication.shared.statusBarStyle = .default
-        }
-    }
-    
     //  设置边角圆弧
     public class func setCornerWithLeftTopCorner(_ leftTop: CGFloat, rightTop: CGFloat, bottemLeft: CGFloat, bottemRight: CGFloat, view: UIView, frame: CGRect) {
      
