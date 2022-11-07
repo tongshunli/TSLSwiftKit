@@ -12,6 +12,7 @@ public class TSLUIFactory: UIView {
     public class func view() -> UIView {
         let view = UIView.init()
         view.clipsToBounds = true
+        view.backgroundColor = kWhiteColor
         return view
     }
     
@@ -56,6 +57,7 @@ public class TSLUIFactory: UIView {
         let scrollView = UIScrollView.init()
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.backgroundColor = kWhiteColor
         return scrollView
     }
     
@@ -77,14 +79,18 @@ public class TSLUIFactory: UIView {
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 44.0
+        tableView.backgroundColor = kWhiteColor
         return tableView
     }
     
-    public class func collectionView(_ flyout: UICollectionViewLayout) -> UICollectionView {
+    public class func collectionView(_ flyout: UICollectionViewFlowLayout) -> UICollectionView {
         let collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: flyout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInsetAdjustmentBehavior = .never
+        collectionView.backgroundColor = kWhiteColor
         return collectionView
     }
     /*

@@ -35,7 +35,13 @@ public let kAppCurrentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBund
 
 public let kAppName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") ?? "" // app名称
 
+public let kBundleIdentifier = Bundle.main.bundleIdentifier // app包名
+
 public let kSystemVersion = UIDevice.current.systemVersion // 获取设备系统号
+
+public let kUUID = UIDevice.current.identifierForVendor?.uuidString // UUID
+
+public let kPhoneModel = UIDevice.current.model // 设备类型
 
 public let kIsIphone = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? true : false // iphone设备
 
