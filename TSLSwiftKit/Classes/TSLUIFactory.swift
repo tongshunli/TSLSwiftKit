@@ -79,8 +79,6 @@ public class TSLUIFactory: UIView {
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 44.0
         tableView.backgroundColor = kWhiteColor
         return tableView
     }
