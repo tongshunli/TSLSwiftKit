@@ -3,7 +3,7 @@
 //  TSLLibrary
 //
 //  Created by TSL on 2021/9/2.
-//
+//  尺寸配制
 
 import UIKit
     
@@ -26,6 +26,8 @@ public let kStatusBarHeight = kIsIphoneX ? 44.0 : 20.0
 public let kNavbarHeight = kIsIphoneX ? 88.0 : 64.0
 
 public let kTabbarHeight = kIsIphoneX ? 83.0 : 49.0
+
+public let kAnimatedDuration = 0.4 // 动画时长
 
 //  根据比例缩放
 public func kGeometricHeight(_ width: CGFloat, proportionWidth: CGFloat, proportionHeight: CGFloat) -> CGFloat {

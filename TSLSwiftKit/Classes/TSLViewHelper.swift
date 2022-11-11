@@ -3,7 +3,7 @@
 //  TSLSwiftKit
 //
 //  Created by TSL on 2022/10/18.
-//
+//  UI相关方法封装
 
 import UIKit
 
@@ -49,18 +49,15 @@ public class TSLViewHelper: NSObject {
         return floor((string as! NSString).boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: contentFont, .paragraphStyle: paragraphStyle], context: nil).height) + kQuarterMargin
     }
     
-    public class func getStringWidth(_ string: String, contentFont: UIFont, lineHeight: CGFloat) -> CGFloat {
+    public class func getStringWidth(_ string: String, contentFont: UIFont) -> CGFloat {
                 
         if string == "" {
             return 0.0
         }
         
-        let paragraphStyle = NSMutableParagraphStyle.init()
-        paragraphStyle.lineSpacing = lineHeight
-        
         let attributedString = NSMutableAttributedString.init(string: string)
         
-        return floor((string as! NSString).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: contentFont, .paragraphStyle: paragraphStyle], context: nil).width) + kQuarterMargin
+        return floor((string as! NSString).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: contentFont], context: nil).width) + kQuarterMargin
     }
     
     //  设置边角圆弧

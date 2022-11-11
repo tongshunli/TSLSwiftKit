@@ -3,7 +3,8 @@
 //  TSLSwiftKit
 //
 //  Created by TSL on 2022/10/27.
-//
+//  方法封装
+
 import UIKit
 import Foundation
 import CommonCrypto
