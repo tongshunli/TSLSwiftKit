@@ -8,7 +8,7 @@
 import UIKit
 import Accelerate
 
-public extension UIImage {
+extension UIImage {
     
     //  颜色透明度、半径、色彩饱和度
     public func imgWithLightAlpha(_ alpha: CGFloat, radius: CGFloat, colorSaturationFactor: CGFloat) -> UIImage {
@@ -46,7 +46,7 @@ public extension UIImage {
             if hasBlur {
                 let inputRadius = blurRadius * UIScreen.main.scale
                 
-                var radius = floor(inputRadius * 3.0 * sqrt(2 * M_PI) / 4 + 0.5)
+                var radius = floor(inputRadius * 3.0 * sqrt(2 * Double.pi) / 4 + 0.5)
                 
                 if radius.truncatingRemainder(dividingBy: 2.0) != 1 {
                     radius += 1
@@ -77,7 +77,7 @@ public extension UIImage {
                 }
                 
                 if hasBlur {
-                    vImageMatrixMultiply_ARGB8888(&effectOutBuffer, &effectInBuffer, UnsafePointer( saturationMatrix), Int32(divisor), nil, nil, vImage_Flags(kvImageNoFlags))
+                    vImageMatrixMultiply_ARGB8888(&effectOutBuffer, &effectInBuffer, UnsafePointer(saturationMatrix), Int32(divisor), nil, nil, vImage_Flags(kvImageNoFlags))
                 } else {
                     vImageMatrixMultiply_ARGB8888(&effectInBuffer, &effectOutBuffer, UnsafePointer(saturationMatrix), Int32(divisor), nil, nil, vImage_Flags(kvImageNoFlags))
                 }
@@ -111,12 +111,10 @@ public extension UIImage {
         }
         
         // 添加颜色渲染
-        if tintColor != nil {
-            outputContext?.saveGState()
-            outputContext?.setFillColor(tintColor.cgColor)
-            outputContext?.fill(imageRect)
-            outputContext?.restoreGState()
-        }
+        outputContext?.saveGState()
+        outputContext?.setFillColor(tintColor.cgColor)
+        outputContext?.fill(imageRect)
+        outputContext?.restoreGState()
         
         // 输出成品,并关闭上下文
         let outputImage = UIGraphicsGetImageFromCurrentImageContext()

@@ -17,8 +17,8 @@ public enum TSLGradientChangeDirection: Int {
 
 public extension UIColor {
     
-    public class func colorGradientChangeWithSize(_ size: CGSize, direction direction: TSLGradientChangeDirection, startColor startcolor: UIColor, endColor endColor: UIColor) -> UIColor {
-        if CGSizeEqualToSize(size, CGSizeZero) || startcolor == nil || endColor == nil {
+    public class func colorGradientChangeWithSize(_ size: CGSize, direction: TSLGradientChangeDirection, startColor: UIColor, endColor: UIColor) -> UIColor {
+        if CGSizeEqualToSize(size, CGSizeZero) || startColor == nil || endColor == nil {
             return UIColor.clear
         }
         
@@ -47,7 +47,7 @@ public extension UIColor {
         }
         
         gradientLayer.endPoint = endPoint
-        gradientLayer.colors = [startcolor.cgColor, endColor.cgColor]
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
         
         UIGraphicsBeginImageContext(size)
         

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension String {
+extension String {
     
     public func toNSRange(from range: Range<String.Index>) -> NSRange {
        let from = range.lowerBound.samePosition(in: utf16)

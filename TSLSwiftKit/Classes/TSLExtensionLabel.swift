@@ -7,7 +7,7 @@
 
 import UIKit
 
-public extension UILabel {
+extension UILabel {
     
     public func textWidth() -> CGFloat {
         return floor((self.text as! NSString).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: self.font], context: nil).width) + kQuarterMargin
