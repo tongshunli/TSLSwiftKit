@@ -6,9 +6,11 @@
 //  UI相关方法封装
 
 import UIKit
+import CoreGraphics
 
 public class TSLViewHelper: NSObject {
 
+    //  获取RootController
     public class func getWindowRootController() -> UIViewController {
         var rootController = kWindow?.rootViewController
         while rootController?.presentedViewController != nil {
@@ -17,6 +19,7 @@ public class TSLViewHelper: NSObject {
         return rootController!
     }
     
+    //  获取当前Controller
     public class func getCurrentViewController() -> UIViewController? {
         var result = kWindow?.rootViewController
         
@@ -35,6 +38,7 @@ public class TSLViewHelper: NSObject {
         return result ?? nil
     }
     
+    //  计算字符串高
     public class func getStringHeight(_ string: String, maxWidth: CGFloat, contentFont: UIFont, lineHeight: CGFloat) -> CGFloat {
                 
         if string == "" {
@@ -49,6 +53,7 @@ public class TSLViewHelper: NSObject {
         return floor((string as! NSString).boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: contentFont, .paragraphStyle: paragraphStyle], context: nil).height) + kQuarterMargin
     }
     
+    //  计算字符串宽
     public class func getStringWidth(_ string: String, contentFont: UIFont) -> CGFloat {
                 
         if string == "" {
@@ -87,6 +92,112 @@ public class TSLViewHelper: NSObject {
         maskLayer.frame = frame
         maskLayer.path = maskPath.cgPath
         view.layer.mask = maskLayer
+    }
+    
+    //  将图片转换成字符串
+    public class func getBase64StringWithImageData(_ imageData: Data) -> String {
+        let image = UIImage(data: imageData)
+        if image == nil {
+            return ""
+        }
+        
+        let fixImage = self.fixOrientation(image!)
+        if fixImage == nil {
+            return ""
+        }
+        
+        return self.imageToStrin(self.imageWithImage(fixImage))
+    }
+    
+    //  更正图片方向
+    class func fixOrientation(_ image: UIImage) -> UIImage {
+        if image.imageOrientation == .up {
+            return image
+        }
+        
+        var transform = CGAffineTransform.identity
+        
+        switch image.imageOrientation {
+        case .down:
+            transform = CGAffineTransformTranslate(transform, image.size.width, image.size.height)
+            transform = CGAffineTransformRotate(transform, M_PI)
+        case .downMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.width, image.size.height)
+            transform = CGAffineTransformRotate(transform, M_PI)
+        case .left:
+            transform = CGAffineTransformTranslate(transform, image.size.width, 0)
+            transform = CGAffineTransformRotate(transform, M_PI_2)
+        case .leftMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.width, 0)
+            transform = CGAffineTransformRotate(transform, M_PI_2)
+        case .right:
+            transform = CGAffineTransformTranslate(transform, 0, image.size.height)
+            transform = CGAffineTransformRotate(transform, -M_PI_2)
+        case .rightMirrored:
+            transform = CGAffineTransformTranslate(transform, 0, image.size.height)
+            transform = CGAffineTransformRotate(transform, -M_PI_2)
+        default:
+            break
+        }
+        
+        switch image.imageOrientation {
+        case .upMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.width, 0)
+            transform = CGAffineTransformScale(transform, -1.0, -1.0)
+        case .downMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.width, 0)
+            transform = CGAffineTransformScale(transform, -1.0, -1.0)
+        case .leftMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.height, 0)
+            transform = CGAffineTransformScale(transform, -1.0, 1.0)
+        case .rightMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.height, 0)
+            transform = CGAffineTransformScale(transform, -1.0, 1.0)
+        default:
+            break
+        }
+        
+        let textRef = CGContext(data: nil, width: Int(image.size.width), height: Int(image.size.height), bitsPerComponent: image.cgImage!.bitsPerComponent, bytesPerRow: 0, space: image.cgImage!.colorSpace!, bitmapInfo: image.cgImage!.bitmapInfo.rawValue)
+        textRef?.concatenate(transform)
+        
+        switch image.imageOrientation {
+        case .left:
+            textRef?.draw(image.cgImage!, in: CGRectMake(0, 0, image.size.height, image.size.width))
+        case .leftMirrored:
+            textRef?.draw(image.cgImage!, in: CGRectMake(0, 0, image.size.height, image.size.width))
+        case .right:
+            textRef?.draw(image.cgImage!, in: CGRectMake(0, 0, image.size.height, image.size.width))
+        case .rightMirrored:
+            textRef?.draw(image.cgImage!, in: CGRectMake(0, 0, image.size.height, image.size.width))
+        default:
+            textRef?.draw(image.cgImage!, in: CGRectMake(0, 0, image.size.width, image.size.height))
+        }
+        
+        let cgimage = CGContext.makeImage(textRef!)
+        return UIImage(cgImage: cgimage as! CGImage)
+    }
+    
+    //  绘制一张全新的图片
+    class func imageWithImage(_ image: UIImage) -> UIImage {
+        UIGraphicsBeginImageContext(CGSize.init(width: image.size.width, height: image.size.height))
+        image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+    
+    //  图片信息转字符串
+    class func imageToStrin(_ image: UIImage) -> String {
+        let imageData = image.jpegData(compressionQuality: 0.7)
+        
+        if imageData != nil {
+            return "data:image/jpeg;base64,\(imageData!.base64EncodedString())"
+        }
+        
+        return ""
     }
     
 }

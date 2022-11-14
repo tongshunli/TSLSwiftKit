@@ -45,14 +45,14 @@ public class TSLTopAlertView: UIView {
     
     lazy var alertTitleLabel: UILabel = {
         var alertTitleLabel = TSLUIFactory.label(kFont(14), textColor: UIColor.black)
-        alertTitleLabel.frame = CGRect(x: 50, y: kNavbarHeight - 45, width: kScreenWidth - 60, height: 30)
+        alertTitleLabel.frame = CGRect(x: 50, y: kNavbarHeight - 37, width: kScreenWidth - 60, height: 30)
 
         return alertTitleLabel
     }()
     
     lazy var alertImageView: UIImageView = {
         var alertImageView = TSLUIFactory.imageView()
-        alertImageView.frame = CGRectMake(kMargin, kNavbarHeight - 40, kMargin, kMargin)
+        alertImageView.frame = CGRectMake(kMargin, kNavbarHeight - 32, kMargin, kMargin)
         return alertImageView
     }()
     
@@ -80,7 +80,6 @@ public class TSLTopAlertView: UIView {
     }()
     
     func removeAlertView() {
-        self.removeAlertView()
         self.removeFromSuperview()
     }
     
@@ -95,11 +94,13 @@ public class TSLTopAlertView: UIView {
     var alertType: AlertType? {
         didSet {
             if alertType == .success {
-                self.alertImageView.image = UIImage.init(named: "tips_success")
+//                self.alertImageView.image = UIImage.init(named: "tips_success")
+                self.alertBottonView.backgroundColor = UIColor.green
             }
             
             if alertType == .error {
-                self.alertImageView.image = UIImage.init(named: "tips_error")
+//                self.alertImageView.image = UIImage.init(named: "tips_error")
+                self.alertBottonView.backgroundColor = UIColor.red
             }
         }
     }
