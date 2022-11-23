@@ -48,9 +48,7 @@ public class TSLViewHelper: NSObject {
         let paragraphStyle = NSMutableParagraphStyle.init()
         paragraphStyle.lineSpacing = lineHeight
         
-        let attributedString = NSMutableAttributedString.init(string: string)
-        
-        return floor((string as! NSString).boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: contentFont, .paragraphStyle: paragraphStyle], context: nil).height) + kQuarterMargin
+        return floor(string.boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: contentFont, .paragraphStyle: paragraphStyle], context: nil).height) + kQuarterMargin
     }
     
     //  计算字符串宽
@@ -60,9 +58,7 @@ public class TSLViewHelper: NSObject {
             return 0.0
         }
         
-        let attributedString = NSMutableAttributedString.init(string: string)
-        
-        return floor((string as! NSString).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: contentFont], context: nil).width) + kQuarterMargin
+        return floor(string.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: contentFont], context: nil).width) + kQuarterMargin
     }
     
     //  设置边角圆弧
@@ -102,9 +98,6 @@ public class TSLViewHelper: NSObject {
         }
         
         let fixImage = self.fixOrientation(image!)
-        if fixImage == nil {
-            return ""
-        }
         
         return self.imageToStrin(self.imageWithImage(fixImage))
     }
@@ -120,22 +113,22 @@ public class TSLViewHelper: NSObject {
         switch image.imageOrientation {
         case .down:
             transform = CGAffineTransformTranslate(transform, image.size.width, image.size.height)
-            transform = CGAffineTransformRotate(transform, M_PI)
+            transform = CGAffineTransformRotate(transform, .pi)
         case .downMirrored:
             transform = CGAffineTransformTranslate(transform, image.size.width, image.size.height)
-            transform = CGAffineTransformRotate(transform, M_PI)
+            transform = CGAffineTransformRotate(transform, .pi)
         case .left:
             transform = CGAffineTransformTranslate(transform, image.size.width, 0)
-            transform = CGAffineTransformRotate(transform, M_PI_2)
+            transform = CGAffineTransformRotate(transform, .pi / 2)
         case .leftMirrored:
             transform = CGAffineTransformTranslate(transform, image.size.width, 0)
-            transform = CGAffineTransformRotate(transform, M_PI_2)
+            transform = CGAffineTransformRotate(transform, .pi / 2)
         case .right:
             transform = CGAffineTransformTranslate(transform, 0, image.size.height)
-            transform = CGAffineTransformRotate(transform, -M_PI_2)
+            transform = CGAffineTransformRotate(transform, -.pi / 2)
         case .rightMirrored:
             transform = CGAffineTransformTranslate(transform, 0, image.size.height)
-            transform = CGAffineTransformRotate(transform, -M_PI_2)
+            transform = CGAffineTransformRotate(transform, -.pi / 2)
         default:
             break
         }

@@ -1,0 +1,20 @@
+Target dependency graph (9 targets)
+FBSnapshotTestCase in Pods, no dependencies
+Nimble in Pods, no dependencies
+iOSSnapshotTestCase in Pods, no dependencies
+Nimble-Snapshots in Pods, depends on:
+Nimble in Pods (explicit)
+iOSSnapshotTestCase in Pods (explicit)
+TSLSwiftKit-TSLSwiftKit in Pods, no dependencies
+TSLSwiftKit in Pods, depends on:
+TSLSwiftKit-TSLSwiftKit in Pods (explicit)
+Pods-TSLSwiftKit_Example in Pods, depends on:
+TSLSwiftKit in Pods (explicit)
+Quick in Pods, no dependencies
+Pods-TSLSwiftKit_Tests in Pods, depends on:
+FBSnapshotTestCase in Pods (explicit)
+Nimble in Pods (explicit)
+Nimble-Snapshots in Pods (explicit)
+Pods-TSLSwiftKit_Example in Pods (explicit)
+Quick in Pods (explicit)
+iOSSnapshotTestCase in Pods (explicit)

@@ -15,10 +15,10 @@ public enum TSLGradientChangeDirection: Int {
     case DownDiagonalLine   = 3 // 向上对角线渐变
 }
 
-public extension UIColor {
+extension UIColor {
     
     public class func colorGradientChangeWithSize(_ size: CGSize, direction: TSLGradientChangeDirection, startColor: UIColor, endColor: UIColor) -> UIColor {
-        if CGSizeEqualToSize(size, CGSizeZero) || startColor == nil || endColor == nil {
+        if CGSizeEqualToSize(size, CGSizeZero) {
             return UIColor.clear
         }
         

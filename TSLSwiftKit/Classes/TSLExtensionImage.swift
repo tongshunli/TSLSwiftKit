@@ -25,7 +25,7 @@ extension UIImage {
         
         let hasBlur = blurRadius > CGFloat.leastNormalMagnitude
         
-        let hasSaturationChange = fabs(saturationDeltaFactor - 1.0) > CGFloat.leastNormalMagnitude
+        let hasSaturationChange = abs(saturationDeltaFactor - 1.0) > CGFloat.leastNormalMagnitude
         
         if hasBlur || hasSaturationChange {
             UIGraphicsBeginImageContextWithOptions(self.size, false, UIScreen.main.scale)
@@ -77,9 +77,9 @@ extension UIImage {
                 }
                 
                 if hasBlur {
-                    vImageMatrixMultiply_ARGB8888(&effectOutBuffer, &effectInBuffer, UnsafePointer(saturationMatrix), Int32(divisor), nil, nil, vImage_Flags(kvImageNoFlags))
+                    vImageMatrixMultiply_ARGB8888(&effectOutBuffer, &effectInBuffer, saturationMatrix, Int32(divisor), nil, nil, vImage_Flags(kvImageNoFlags))
                 } else {
-                    vImageMatrixMultiply_ARGB8888(&effectInBuffer, &effectOutBuffer, UnsafePointer(saturationMatrix), Int32(divisor), nil, nil, vImage_Flags(kvImageNoFlags))
+                    vImageMatrixMultiply_ARGB8888(&effectInBuffer, &effectOutBuffer, saturationMatrix, Int32(divisor), nil, nil, vImage_Flags(kvImageNoFlags))
                 }
             }
             
