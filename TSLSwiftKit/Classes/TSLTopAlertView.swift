@@ -94,11 +94,11 @@ public class TSLTopAlertView: UIView {
     var alertType: AlertType? {
         didSet {
             if alertType == .success {
-                self.alertImageView.image = TSLViewHelper.getBundleImageWithName("tips_success")
+                self.alertImageView.image = Bundle.getBundleImageWithName("tips_success")
             }
             
             if alertType == .error {
-                self.alertImageView.image = TSLViewHelper.getBundleImageWithName("tips_error")
+                self.alertImageView.image = Bundle.getBundleImageWithName("tips_error")
             }
         }
     }
