@@ -94,13 +94,11 @@ public class TSLTopAlertView: UIView {
     var alertType: AlertType? {
         didSet {
             if alertType == .success {
-//                self.alertImageView.image = UIImage.init(named: "tips_success")
-                self.alertBottonView.backgroundColor = UIColor.green
+                self.alertImageView.image = TSLViewHelper.getBundleImageWithName("tips_success")
             }
             
             if alertType == .error {
-//                self.alertImageView.image = UIImage.init(named: "tips_error")
-                self.alertBottonView.backgroundColor = UIColor.red
+                self.alertImageView.image = TSLViewHelper.getBundleImageWithName("tips_error")
             }
         }
     }

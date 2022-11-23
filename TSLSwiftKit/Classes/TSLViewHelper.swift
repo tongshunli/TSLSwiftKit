@@ -193,4 +193,21 @@ public class TSLViewHelper: NSObject {
         return ""
     }
     
+    //  获取图片地址
+    class func getBundleImageWithName(_ name: String) -> UIImage {
+        let currentBundle = Bundle(for: self.classForCoder())
+        
+        let dict = currentBundle.infoDictionary
+        
+        let bundleName = dict!["CFBundleExecutable"]
+        
+        let bundleNamePath = "\(bundleName ?? "").boudle"
+        
+        let bundlePath = currentBundle.resourcePath! + "/\(bundleNamePath)"
+        
+        let resource_bundle = Bundle(path: bundlePath)
+        
+        return UIImage(named: name, in: resource_bundle, compatibleWith: nil)!
+    }
+    
 }
