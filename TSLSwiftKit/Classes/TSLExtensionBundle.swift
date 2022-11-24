@@ -3,14 +3,13 @@
 //  Alamofire
 //
 //  Created by TSL on 2022/11/23.
-//
+//  获取SDK内的图片
 
 import UIKit
 
 extension Bundle {
     
-    //  获取图片地址
-    public class func getBundleImageWithName(_ name: String) -> UIImage? {
+    class func getBundleImageWithName(_ name: String) -> UIImage? {
     
         let currentBundle = Bundle.main
         

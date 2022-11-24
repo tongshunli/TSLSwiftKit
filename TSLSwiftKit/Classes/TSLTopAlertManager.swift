@@ -3,7 +3,7 @@
 //  TSLSwiftKit
 //
 //  Created by TSL on 2022/11/11.
-//
+//  顶部弹框提示
 
 import UIKit
 
@@ -11,7 +11,7 @@ public class TSLTopAlertManager: NSObject {
 
     static var topAlertView: TSLTopAlertView?
     
-    public class func showAlertWithType(_ type: AlertType, alertTitle: String) {
+    public class func showAlertWithType(_ type: TSLAlertType, alertTitle: String) {
      
         if alertTitle.count == 0 {
             return

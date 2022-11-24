@@ -7,12 +7,12 @@
 
 import UIKit
 
-public enum AlertType: Int {
+public enum TSLAlertType: Int {
     case success = 0
     case error = 1
 }
 
-public class TSLTopAlertView: UIView {
+class TSLTopAlertView: UIView {
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -91,7 +91,7 @@ public class TSLTopAlertView: UIView {
     }
     
     //  成功或失败
-    var alertType: AlertType? {
+    var alertType: TSLAlertType? {
         didSet {
             if alertType == .success {
                 self.alertImageView.image = Bundle.getBundleImageWithName("tips_success")
