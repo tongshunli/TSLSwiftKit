@@ -22,16 +22,11 @@ public class TSLCustomButton: UIButton {
     
     var buttonImageName: String = ""
     
-    var placeholderImage: UIImage?
-    
     var buttonIndicatior: TSLCustomButtonIndicator = .titleLeft
     
     //  图文间距,默认10
     public var graphicDistance: CGFloat = 10.0
-    
-    //  边距,默认0
-    var buttonMargin: CGFloat = 0.0
-    
+      
     //  图片尺寸
     public var buttonImageWidth: CGFloat = 0.0
     public var buttonImageHeight: CGFloat = 0.0
@@ -39,7 +34,7 @@ public class TSLCustomButton: UIButton {
     //  默认字号
     var buttonTitleFont: UIFont = kFont(12)
     
-    public init(_ frame: CGRect, buttonTitle: String, buttonTitleFont: UIFont, buttonImageName: String, placeholderImage: UIImage?, buttonIndicatior: TSLCustomButtonIndicator) {
+    public init(_ frame: CGRect, buttonTitle: String, buttonTitleFont: UIFont, buttonImageName: String, buttonIndicatior: TSLCustomButtonIndicator) {
         super.init(frame: frame)
     
         self.buttonTitle = buttonTitle
@@ -47,8 +42,6 @@ public class TSLCustomButton: UIButton {
         self.buttonTitleFont = buttonTitleFont
         
         self.buttonImageName = buttonImageName
-        
-        self.placeholderImage = placeholderImage
         
         self.buttonIndicatior = buttonIndicatior
         
@@ -63,7 +56,7 @@ public class TSLCustomButton: UIButton {
         self.addSubview(self.bottonHoldView)
         
         self.bottonHoldView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.center.equalToSuperview()
         }
         
         if self.buttonTitle.count > 0 {
@@ -81,6 +74,7 @@ public class TSLCustomButton: UIButton {
     lazy var bottonHoldView: UIView = {
         var bottonHoldView = TSLUIFactory.view()
         bottonHoldView.isUserInteractionEnabled = false
+        bottonHoldView.backgroundColor = kClearColor
         return bottonHoldView
     }()
     
@@ -121,30 +115,26 @@ public class TSLCustomButton: UIButton {
     func createCustomButtonIndicatorTitleLeft() {
         if self.buttonTitle.count > 0 && self.buttonImageName.count > 0 {
             self.buttonTitleLabel.snp.makeConstraints { make in
-                make.left.equalTo(self.buttonMargin)
-                make.top.height.equalToSuperview()
+                make.top.left.height.equalToSuperview()
+                make.width.equalTo(self.buttonTitleLabel.textWidth())
             }
             
             self.buttonImageView.snp.makeConstraints { make in
                 make.left.equalTo(self.buttonTitleLabel.snp.right).offset(self.graphicDistance)
                 make.width.equalTo(self.buttonImageWidth)
                 make.height.equalTo(self.buttonImageHeight)
-                make.right.equalTo(-self.buttonMargin)
-                make.centerY.equalToSuperview()
+                make.right.centerY.equalToSuperview()
             }
         } else if self.buttonTitle.count > 0 { // 只有文字
             self.buttonTitleLabel.snp.makeConstraints { make in
-                make.left.equalTo(self.buttonMargin)
-                make.right.equalTo(-self.buttonMargin)
-                make.top.bottom.equalToSuperview()
+                make.edges.equalToSuperview()
+                make.width.equalTo(self.buttonTitleLabel.textWidth())
             }
         } else if self.buttonImageName.count > 0 {
             self.buttonImageView.snp.makeConstraints { make in
-                make.left.equalTo(self.buttonMargin)
-                make.right.equalTo(-self.buttonMargin)
                 make.width.equalTo(self.buttonImageWidth)
                 make.height.equalTo(self.buttonImageHeight)
-                make.centerY.equalToSuperview()
+                make.left.right.centerY.equalToSuperview()
             }
         }
     }
