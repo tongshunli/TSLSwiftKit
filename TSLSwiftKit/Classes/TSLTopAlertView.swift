@@ -14,6 +14,9 @@ public enum TSLAlertType: Int {
 
 class TSLTopAlertView: UIView {
     
+    //  已经隐藏
+    var alertViewIsHidden: Bool = false
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -63,11 +66,15 @@ class TSLTopAlertView: UIView {
     }
     
     func hiddenAlertView() {
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: kAnimatedDuration, delay: 1, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: .showHideTransitionViews) { [unowned self] in
-                self.alertBottonView.frame = CGRect(x: 0, y: -kNavbarHeight, width: kScreenWidth, height: kNavbarHeight)
-            } completion: {[unowned self] finish in
-                self.removeAlertView()
+        if self.alertViewIsHidden == false {
+            self.alertViewIsHidden = true
+            
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: kAnimatedDuration, delay: 1, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: .showHideTransitionViews) { [unowned self] in
+                    self.alertBottonView.frame = CGRect(x: 0, y: -kNavbarHeight, width: kScreenWidth, height: kNavbarHeight)
+                } completion: {[unowned self] finish in
+                    self.removeAlertView()
+                }
             }
         }
     }
@@ -104,6 +111,8 @@ class TSLTopAlertView: UIView {
     }
     
     func showAlertView() {
+        
+        self.alertViewIsHidden = false
         
         UIView.animate(withDuration: kAnimatedDuration, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0) { [unowned self] in
             self.alertBottonView.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: kNavbarHeight)

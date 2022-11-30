@@ -76,6 +76,7 @@ public class TSLUIFactory: UIView {
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
         tableView.contentInsetAdjustmentBehavior = .never
+        tableView.estimatedRowHeight = 44.0
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }

@@ -21,9 +21,7 @@ public class TSLTopAlertManager: NSObject {
             return
         }
         
-        if self.topAlertView != nil {
-            self.topAlertView?.hiddenAlertView()
-        }
+        self.topAlertView?.hiddenAlertView()
         
         DispatchQueue.main.async {
             self.topAlertView = TSLTopAlertView.init()
