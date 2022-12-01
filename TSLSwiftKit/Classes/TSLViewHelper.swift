@@ -91,8 +91,12 @@ public class TSLViewHelper: NSObject {
     }
     
     //  将图片转换成字符串
-    public class func getBase64StringWithImageData(_ imageData: Data) -> String {
-        let image = UIImage(data: imageData)
+    public class func getBase64StringWithImageData(_ imageData: Data?) -> String {
+        if imageData == nil {
+            return ""
+        }
+        
+        let image = UIImage(data: imageData!)
         if image == nil {
             return ""
         }
