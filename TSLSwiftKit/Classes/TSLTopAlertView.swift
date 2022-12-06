@@ -87,6 +87,8 @@ class TSLTopAlertView: UIView {
     }()
     
     func removeAlertView() {
+        self.alertTitle = ""
+        
         self.removeFromSuperview()
     }
     

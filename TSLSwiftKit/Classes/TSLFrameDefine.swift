@@ -31,11 +31,11 @@ public let kAnimatedDuration = 0.4 // 动画时长
 
 //  根据比例缩放
 public func kGeometricHeight(_ width: CGFloat, proportionWidth: CGFloat, proportionHeight: CGFloat) -> CGFloat {
-    return width * proportionHeight / proportionWidth
+    return floor(width * proportionHeight / proportionWidth)
 }
 
 public func kGeometricWidth(_ height: CGFloat, proportionWidth: CGFloat, proportionHeight: CGFloat) -> CGFloat {
-    return height * proportionWidth / proportionHeight
+    return floor(height * proportionWidth / proportionHeight)
 }
 
 public func kFont(_ fontSize: CGFloat) -> UIFont {
