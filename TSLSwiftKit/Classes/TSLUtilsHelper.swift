@@ -24,4 +24,15 @@ public class TSLUtilsHelper: NSObject {
         return digest.reduce("") { $0 + String(format:"%02X", $1) }
     }
     
+    public class func changeIntMethod(_ targetStr: String?) -> Int {
+        let tmpStr = NSString(string: targetStr ?? "0")
+        return tmpStr.integerValue
+    }
+    
+    //  判断字符串是否为空
+    public class func stringIsReBlank(_ str: String?) -> Bool {
+        let chare = str?.trimmingCharacters(in: .whitespacesAndNewlines)
+        return chare?.isEmpty ?? true
+    }
+    
 }

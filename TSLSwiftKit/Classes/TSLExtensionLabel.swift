@@ -13,14 +13,14 @@ extension UILabel {
         if self.text == nil {
             return 0
         }
-        return floor(self.text!.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: self.font], context: nil).width) + kQuarterMargin
+        return floor(self.text!.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: self.font], context: nil).width) + 1
     }
     
     public func textHeight() -> CGFloat {
         if self.text == nil {
             return 0
         }
-        return floor(self.text!.boundingRect(with: CGSize(width: self.preferredMaxLayoutWidth, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: self.font], context: nil).height) + kQuarterMargin
+        return floor(self.text!.boundingRect(with: CGSize(width: self.preferredMaxLayoutWidth, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: self.font], context: nil).height) + 1
     }
     
     public func attributedTextWidth() -> CGFloat {
@@ -30,7 +30,7 @@ extension UILabel {
         
         let alternativeParagraphStyle = self.attributedText!.attributes(at: 0, effectiveRange: nil)
 
-        return floor((self.attributedText?.string.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: alternativeParagraphStyle, context: nil).width)!) + kQuarterMargin
+        return floor((self.attributedText?.string.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: alternativeParagraphStyle, context: nil).width)!) + 1
     }
     
     public func attributedTextHeight() -> CGFloat {
@@ -40,7 +40,7 @@ extension UILabel {
         
         let alternativeParagraphStyle = self.attributedText!.attributes(at: 0, effectiveRange: nil)
 
-        return floor((self.attributedText?.string.boundingRect(with: CGSize(width: self.preferredMaxLayoutWidth, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: alternativeParagraphStyle, context: nil).height)!) + kQuarterMargin
+        return floor((self.attributedText?.string.boundingRect(with: CGSize(width: self.preferredMaxLayoutWidth, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: alternativeParagraphStyle, context: nil).height)!) + 1
     }
     
 }
