@@ -26,6 +26,7 @@ public class TSLUIFactory: UIView {
     public class func imageView() -> UIImageView {
         let imageView = UIImageView.init()
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }
     
