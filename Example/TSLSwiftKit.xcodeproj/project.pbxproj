@@ -31,7 +31,7 @@
 		0D3AFF226894B7421095BA10 /* Pods_TSLSwiftKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSLSwiftKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		102B934C88A40AB1B17DB8FE /* Pods_TSLSwiftKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSLSwiftKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AE42162548FFE522F2A13FA /* Pods-TSLSwiftKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSLSwiftKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-TSLSwiftKit_Tests/Pods-TSLSwiftKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		4378D1B2606315575BA302B7 /* TSLSwiftKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = TSLSwiftKit.podspec; path = ../TSLSwiftKit.podspec; sourceTree = "<group>"; };
+		4378D1B2606315575BA302B7 /* TSLSwiftKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TSLSwiftKit.podspec; path = ../TSLSwiftKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		607FACD01AFB9204008FA782 /* TSLSwiftKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSLSwiftKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,10 +43,10 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6DE830DE9DCAD592D8339073 /* Pods-TSLSwiftKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSLSwiftKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-TSLSwiftKit_Tests/Pods-TSLSwiftKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		6ED89DF603F1559E378BC62C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		6ED89DF603F1559E378BC62C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A13E7FD4616CBBF0970E56D3 /* Pods-TSLSwiftKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSLSwiftKit_Example.release.xcconfig"; path = "Target Support Files/Pods-TSLSwiftKit_Example/Pods-TSLSwiftKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		CA1A482D6D2FBC4FDD7FD2AE /* Pods-TSLSwiftKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSLSwiftKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-TSLSwiftKit_Example/Pods-TSLSwiftKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		D62F32AD3DBAEAADFD8FCD8A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		D62F32AD3DBAEAADFD8FCD8A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +156,6 @@
 				2AE42162548FFE522F2A13FA /* Pods-TSLSwiftKit_Tests.debug.xcconfig */,
 				6DE830DE9DCAD592D8339073 /* Pods-TSLSwiftKit_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -228,6 +227,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -270,10 +270,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TSLSwiftKit_Example/Pods-TSLSwiftKit_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TSLSwiftKit/TSLSwiftKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TSLSwiftKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,8 +1,9 @@
 {
   "name": "TSLSwiftKit",
-  "version": "0.1.11",
+  "version": "0.3.2",
   "summary": "Common methods of Swift and macro definition encapsulation.",
-  "description": "TODO: Add long description of the pod here.",
+  "swift_versions": "4.2",
+  "description": "Common methods and UI controls are encapsulated to facilitate external calls",
   "homepage": "https://github.com/tongshunli/TSLSwiftKit",
   "license": {
     "type": "MIT",
@@ -13,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/tongshunli/TSLSwiftKit.git",
-    "tag": "0.1.11"
+    "tag": "0.3.2"
   },
   "platforms": {
     "ios": "11.0"
@@ -23,5 +24,11 @@
     "TSLSwiftKit": [
       "TSLSwiftKit/Assets/*.png"
     ]
-  }
+  },
+  "dependencies": {
+    "SnapKit": [
+
+    ]
+  },
+  "swift_version": "4.2"
 }
