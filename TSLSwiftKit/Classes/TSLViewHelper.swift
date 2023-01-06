@@ -58,7 +58,7 @@ public class TSLViewHelper: NSObject {
             return 0.0
         }
         
-        return floor(string.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: contentFont], context: nil).width) + 1.0
+        return floor(string.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: contentFont], context: nil).width) + kQuarterMargin
     }
     
     //  设置边角圆弧

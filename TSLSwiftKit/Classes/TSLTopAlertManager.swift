@@ -11,7 +11,7 @@ public class TSLTopAlertManager: NSObject {
 
     static var topAlertView: TSLTopAlertView?
     
-    public class func showAlertWithType(_ type: TSLTopAlertType, alertTitle: String) {
+    public class func showAlertWithType(_ type: TSLAlertType, alertTitle: String) {
      
         if alertTitle.count == 0 {
             return

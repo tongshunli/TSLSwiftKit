@@ -47,7 +47,7 @@ public let kIsIphone = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdi
 
 public let kIsIpad = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad ? true : false // ipad设备
 
-public let kIsIphoneX = (abs(max(kScreenWidth,  kScreenHeight) / min(kScreenWidth, kScreenHeight) - 896.0 / 414.0) < 0.01 || abs(max(kScreenWidth,  kScreenHeight) / min(kScreenWidth, kScreenHeight) - 812.0 / 375.0) < 0.01)
+public let kIsIphoneX = (abs(max(kScreenWidth,  kScreenHeight) / min(kScreenWidth, kScreenHeight) - 896 / 414) < 0.01 || abs(max(kScreenWidth,  kScreenHeight) / min(kScreenWidth, kScreenHeight) - 812 / 375) < 0.01)
 
 public let kIsDarkMode: Bool = {
     if #available(iOS 13.0, *) {

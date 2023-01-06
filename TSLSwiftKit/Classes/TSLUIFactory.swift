@@ -20,7 +20,6 @@ public class TSLUIFactory: UIView {
         let label = UILabel.init()
         label.font = textFont
         label.textColor = textColor
-        label.preferredMaxLayoutWidth = kScreenWidth
         return label
     }
     
@@ -43,7 +42,6 @@ public class TSLUIFactory: UIView {
         let button = button(target, selector: selector)
         button.titleLabel?.font = textFont
         button.setTitleColor(textColor, for: .normal)
-        button.titleLabel?.preferredMaxLayoutWidth = kScreenWidth
         return button
     }
     
