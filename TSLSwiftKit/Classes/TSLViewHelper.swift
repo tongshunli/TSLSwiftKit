@@ -103,7 +103,7 @@ public class TSLViewHelper: NSObject {
         
         let fixImage = self.fixOrientation(image!)
         
-        return self.imageToStrin(self.imageWithImage(fixImage))
+        return self.imageToString(self.imageWithImage(fixImage))
     }
     
     //  更正图片方向
@@ -187,11 +187,11 @@ public class TSLViewHelper: NSObject {
     }
     
     //  图片信息转字符串
-    class func imageToStrin(_ image: UIImage) -> String {
+    class func imageToString(_ image: UIImage) -> String {
         let imageData = image.jpegData(compressionQuality: 0.7)
         
         if imageData != nil {
-            return "data:image/jpeg;base64,\(imageData!.base64EncodedString())"
+            return "\(imageData!.base64EncodedString())"
         }
         
         return ""

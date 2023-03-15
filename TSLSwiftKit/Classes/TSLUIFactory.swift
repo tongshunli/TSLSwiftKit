@@ -19,6 +19,7 @@ public class TSLUIFactory: UIView {
     public class func label(_ textFont: UIFont, textColor: UIColor) -> UILabel {
         let label = UILabel.init()
         label.font = textFont
+        label.layer.masksToBounds = true
         label.textColor = textColor
         return label
     }
@@ -78,6 +79,7 @@ public class TSLUIFactory: UIView {
         tableView.separatorStyle = .none
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.estimatedRowHeight = 44.0
+        tableView.sectionFooterHeight = kHalfMargin
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }

@@ -14,7 +14,7 @@ public class TSLUtilsHelper: NSObject {
     public class func getTimeStamp() -> String {
         let date = NSDate.init(timeIntervalSinceNow: 0)
         let interval = date.timeIntervalSince1970
-        return "%.\(interval)f"
+        return "\(Int(interval))"
     }
     
     public class func md5(_ strs: String) -> String {
@@ -33,6 +33,38 @@ public class TSLUtilsHelper: NSObject {
     public class func stringIsReBlank(_ str: String?) -> Bool {
         let chare = str?.trimmingCharacters(in: .whitespacesAndNewlines)
         return chare?.isEmpty ?? true
+    }
+    
+    //  字典转字符串
+    public class func dictionaryToJsonString(_ dict: NSDictionary?) -> String {
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: dict)
+            
+            if jsonData != nil {
+                return String.init(data: jsonData, encoding: .utf8) ?? ""
+            }
+        } catch {
+            
+        }
+        
+        return ""
+    }
+    
+    //  字符串转字典
+    public class func jsonStringToDictionary(_ jsonString: String?) -> NSDictionary {
+        if jsonString != nil {
+            let jsonData = jsonString!.data(using: .utf8)
+            
+            do {
+                let dic = try JSONSerialization.jsonObject(with: jsonData!)
+                
+                return dic as! NSDictionary
+            } catch {
+                
+            }
+        }
+        
+        return [:]
     }
     
 }
