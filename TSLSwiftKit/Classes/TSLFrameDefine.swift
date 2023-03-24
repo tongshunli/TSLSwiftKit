@@ -21,11 +21,11 @@ public let kQuarterMargin = 5.0
 
 public let kLineHeight = 0.5
 
-public let kStatusBarHeight = (kIsIphoneX ? 44.0 : 20.0)
+public let kStatusBarHeight = kWindow?.safeAreaInsets.top ?? (kIsIphoneX ? 44.0 : 20.0)
 
-public let kNavbarHeight = (kIsIphoneX ? 88.0 : 64.0)
+public let kNavbarHeight = kStatusBarHeight + 44.0
 
-public let kTabbarHeight = (kIsIphoneX ? 83.0 : 49.0)
+public let kTabbarHeight = (kWindow?.safeAreaInsets.bottom ?? (kIsIphoneX ? 34.0 : 0)) + 49.0
 
 public let kAnimatedDuration = 0.4 // 动画时长
 

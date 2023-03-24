@@ -38,11 +38,10 @@ public class TSLUtilsHelper: NSObject {
     //  字典转字符串
     public class func dictionaryToJsonString(_ dict: NSDictionary?) -> String {
         do {
-            let jsonData = try JSONSerialization.data(withJSONObject: dict)
-            
-            if jsonData != nil {
-                return String.init(data: jsonData, encoding: .utf8) ?? ""
-            }
+            let jsonData = try JSONSerialization.data(withJSONObject: dict as Any)
+                        
+            return String.init(data: jsonData, encoding: .utf8) ?? ""
+
         } catch {
             
         }
