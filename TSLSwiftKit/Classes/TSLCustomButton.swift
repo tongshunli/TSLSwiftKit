@@ -18,11 +18,11 @@ public enum TSLCustomButtonIndicator: Int {
 
 public class TSLCustomButton: UIButton {
     
-    var buttonTitle: String = ""
+    public var buttonTitle: String = ""
     
-    var buttonImageName: String = ""
+    public var buttonImageName: String = ""
     
-    var buttonIndicatior: TSLCustomButtonIndicator = .titleLeft
+    public var buttonIndicatior: TSLCustomButtonIndicator = .titleLeft
     
     //  图文间距,默认10
     public var graphicDistance: CGFloat = 10.0
@@ -32,7 +32,7 @@ public class TSLCustomButton: UIButton {
     public var buttonImageHeight: CGFloat = 0.0
     
     //  默认字号
-    var buttonTitleFont: UIFont = kFont(12)
+    public var buttonTitleFont: UIFont = kFont(12)
     
     public init(_ frame: CGRect, buttonTitle: String, buttonTitleFont: UIFont, buttonImageName: String, buttonIndicatior: TSLCustomButtonIndicator) {
         super.init(frame: frame)
