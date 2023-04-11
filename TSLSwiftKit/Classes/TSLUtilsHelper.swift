@@ -9,6 +9,17 @@ import UIKit
 import Foundation
 import CommonCrypto
 
+public enum TSLValidateType: Int {
+    case email = 0
+    case phoneNum = 1
+    case carNum = 2
+    case username = 3
+    case password = 4
+    case nickname = 5
+    case URL = 6
+    case IP = 7
+}
+
 public class TSLUtilsHelper: NSObject {
     
     public class func getTimeStamp() -> String {
@@ -64,6 +75,34 @@ public class TSLUtilsHelper: NSObject {
         }
         
         return [:]
+    }
+    
+    //  格式验证
+    public class func formatValidation(_ verify: String, validateType: TSLValidateType) -> Bool {
+        
+        var predicateStr: String?
+        
+        switch validateType {
+        case .email:
+            predicateStr = "^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$"
+        case .phoneNum:
+            predicateStr = "^((13[0-9])|(15[^4,\\D]) |(17[0,0-9])|(18[0,0-9]))\\d{8}$"
+        case .carNum:
+            predicateStr = "^[A-Za-z]{1}[A-Za-z_0-9]{5}$"
+        case .username:
+            predicateStr = "^[A-Za-z0-9]{6,20}+$"
+        case .password:
+            predicateStr = "^[a-zA-Z0-9]{6,20}+$"
+        case .nickname:
+            predicateStr = "^[\\u4e00-\\u9fa5]{4,8}$"
+        case .URL:
+            predicateStr = "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"
+        case .IP:
+            predicateStr = "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+        }
+        
+        let predicate =  NSPredicate(format: "SELF MATCHES %@", predicateStr!)
+        return predicate.evaluate(with: verify)
     }
     
 }
