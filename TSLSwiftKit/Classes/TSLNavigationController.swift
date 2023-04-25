@@ -7,11 +7,11 @@
 
 import UIKit
 
-class TSLNavigationController: UINavigationController {
+public class TSLNavigationController: UINavigationController {
 
     var isSwitching: Bool = false
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         self.delegate = self
@@ -22,7 +22,7 @@ class TSLNavigationController: UINavigationController {
         // Do any additional setup after loading the view.
     }
     
-    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+    public override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if self.viewControllers.count > 0 {
             viewController.hidesBottomBarWhenPushed = true
         }
@@ -55,7 +55,7 @@ class TSLNavigationController: UINavigationController {
 
 extension TSLNavigationController: UINavigationControllerDelegate {
     
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    private func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         let isRootViewController = viewController == navigationController.viewControllers.first
         
         self.interactivePopGestureRecognizer?.isEnabled = !isRootViewController
@@ -63,7 +63,7 @@ extension TSLNavigationController: UINavigationControllerDelegate {
         self.isSwitching = false
     }
     
-    override func popViewController(animated: Bool) -> UIViewController? {
+    public override func popViewController(animated: Bool) -> UIViewController? {
         self.isSwitching = false
         return super.popViewController(animated: animated)
     }
