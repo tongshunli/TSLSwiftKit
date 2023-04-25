@@ -60,4 +60,12 @@ extension UIColor {
         return UIColor.init(patternImage: image!)
     }
     
+    //  暗黑模式颜色
+    public func themeColor(_ darkColor: UIColor) -> UIColor {
+        if kIsDarkMode {
+            return darkColor
+        } else {
+            return self
+        }
+    }
 }

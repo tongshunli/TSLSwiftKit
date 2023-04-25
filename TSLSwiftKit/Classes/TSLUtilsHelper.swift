@@ -105,4 +105,8 @@ public class TSLUtilsHelper: NSObject {
         return predicate.evaluate(with: verify)
     }
     
+    public class func getCachesAddress() -> String {
+        return NSHomeDirectory().appending("/Library/Caches")
+    }
+    
 }
