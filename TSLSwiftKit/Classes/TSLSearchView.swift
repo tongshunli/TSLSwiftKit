@@ -7,9 +7,9 @@
 
 import UIKit
 
-class TSLSearchView: UIView {
+public class TSLSearchView: UIView {
 
-    var searchButtonClickedWithSearchTextBlock: (_ searchTextFieldText: String) -> Void = {searchTextFieldText in }
+    public var searchConfirmBlock: ((_ searchWord: String) -> Void) = {searchWord in }
         
     var searchBarCleanText: () -> Void = {}
   
@@ -24,41 +24,53 @@ class TSLSearchView: UIView {
     }
     
     func createSubviews() {
-        self.backgroundColor = UIColor.clear
+        self.backgroundColor = kColorRGB(249, g: 249, b: 249)
+        
+        self.addSubview(self.searchImageView)
+        
+        self.searchImageView.snp.makeConstraints { make in
+            make.right.equalTo(-kHalfMargin)
+            make.width.height.equalTo(18)
+            make.centerY.equalToSuperview()
+        }
         
         self.addSubview(self.searchTextField)
         
         self.searchTextField.snp.makeConstraints { make in
             make.left.equalTo(kHalfMargin)
             make.right.equalTo(-kHalfMargin)
-            make.centerY.equalToSuperview()
-            make.height.equalTo(36)
+            make.top.bottom.equalToSuperview()
         }
     }
     
+    public lazy var searchImageView: UIImageView = {
+        var searchImageView = TSLUIFactory.imageView()
+        searchImageView.image = Bundle.getBundleImageWithName("search");
+        return searchImageView
+    }()
+    
     public lazy var searchTextField: UITextField = {
         var searchTextField = TSLUIFactory.textField(kFont(16), textColor: UIColor.black, placeholder: "")
-        searchTextField.backgroundColor = kColorRGB(237, g: 238, b: 238)
+        searchTextField.backgroundColor = kClearColor
         searchTextField.clearButtonMode = .whileEditing
         searchTextField.delegate = self
         searchTextField.returnKeyType = .search
         searchTextField.addTarget(self, action: #selector(changeText), for: .editingChanged)
-        searchTextField.layer.cornerRadius = 18
         
-        let leftImageView = TSLUIFactory.imageView()
-        leftImageView.frame = CGRect(x: 0, y: 0, width: 18.0, height: 18.0)
-        leftImageView.image = UIImage.init(named: "public_search")?.withRenderingMode(.alwaysTemplate)
-        leftImageView.tintColor = kColorRGB(156, g: 155, b: 157)
+        let rightImageView = TSLUIFactory.imageView()
+        rightImageView.frame = CGRect(x: 0, y: 0, width: 18.0, height: 18.0)
+        rightImageView.image = Bundle.getBundleImageWithName("search")?.withRenderingMode(.alwaysTemplate)
+        rightImageView.tintColor = kColorRGB(156, g: 155, b: 157)
         
-        let leftView = TSLUIFactory.view()
-        leftView.frame = CGRect(x: 0, y: 0, width: 30, height: 44)
-        leftView.backgroundColor = kClearColor
-        leftView.addSubview(leftImageView)
+        let rightView = TSLUIFactory.view()
+        rightView.frame = CGRect(x: 0, y: 0, width: 30, height: self.frame.size.height)
+        rightView.backgroundColor = kClearColor
+        rightView.addSubview(rightImageView)
         
-        leftImageView.center = leftView.center
+        rightImageView.center = rightView.center
         
-        searchTextField.leftViewMode = .always
-        searchTextField.leftView = leftView
+        searchTextField.rightViewMode = .always
+        searchTextField.rightView = rightView;
         return searchTextField
     }()
     
@@ -94,12 +106,12 @@ class TSLSearchView: UIView {
 
 extension TSLSearchView: UITextFieldDelegate {
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    private func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string == "\n" {
             if textField.text?.count ?? 0 > 0 {
-                self.searchButtonClickedWithSearchTextBlock(searchTextField.text ?? "")
+                self.searchConfirmBlock(searchTextField.text ?? "")
             } else if self.placeholderText?.count ?? 0 > 0 {
-                self.searchButtonClickedWithSearchTextBlock(self.placeholderText ?? "")
+                self.searchConfirmBlock(self.placeholderText ?? "")
             }
             
             textField.resignFirstResponder()
