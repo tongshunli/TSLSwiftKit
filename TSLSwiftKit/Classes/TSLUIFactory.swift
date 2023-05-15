@@ -95,6 +95,15 @@ public class TSLUIFactory: UIView {
         collectionView.backgroundColor = kWhiteColor
         return collectionView
     }
+    
+    //  暗黑模式图片
+    public class func themeImage(_ imageName: String) -> UIImage? {
+        if kIsDarkMode {
+            return UIImage(named: "\(imageName)_dark")
+        } else {
+            return UIImage(named: imageName)
+        }
+    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

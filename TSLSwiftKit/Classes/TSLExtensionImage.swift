@@ -123,12 +123,4 @@ extension UIImage {
         return outputImage!
     }
     
-    //  暗黑模式图片
-    public func themeImage(_ darkImageName: String) -> UIImage {
-        if kIsDarkMode {
-            return UIImage(named: darkImageName) ?? self
-        } else {
-            return self
-        }
-    }
 }
