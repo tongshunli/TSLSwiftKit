@@ -92,7 +92,7 @@ public class TSLUIFactory: UIView {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentInsetAdjustmentBehavior = .never
-        collectionView.backgroundColor = kWhiteColor
+        collectionView.backgroundColor = kClearColor
         return collectionView
     }
     

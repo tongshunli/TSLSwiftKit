@@ -34,7 +34,11 @@ public func kColorWithHexString(_ color: String, a: CGFloat) -> UIColor {
         return kClearColor
     }
     
-    if cString.hasPrefix("0X") {
+    if cString.hasPrefix("#") {
+        let temStr: NSString = cString as NSString
+        
+        cString = temStr.substring(from: 1)
+    } else if cString.hasPrefix("0X") {
         let temStr: NSString = cString as NSString
         
         cString = temStr.substring(from: 2)
