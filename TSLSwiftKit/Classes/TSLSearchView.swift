@@ -106,7 +106,7 @@ public class TSLSearchView: UIView {
 
 extension TSLSearchView: UITextFieldDelegate {
     
-    private func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string == "\n" {
             if textField.text?.count ?? 0 > 0 {
                 self.searchConfirmBlock(searchTextField.text ?? "")

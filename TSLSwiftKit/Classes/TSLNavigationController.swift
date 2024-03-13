@@ -55,7 +55,7 @@ public class TSLNavigationController: UINavigationController {
 
 extension TSLNavigationController: UINavigationControllerDelegate {
     
-    private func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         let isRootViewController = viewController == navigationController.viewControllers.first
         
         self.interactivePopGestureRecognizer?.isEnabled = !isRootViewController
