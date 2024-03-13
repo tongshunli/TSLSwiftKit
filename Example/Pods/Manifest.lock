@@ -17,7 +17,7 @@ PODS:
     - Nimble
   - Quick (2.2.1)
   - SnapKit (5.6.0)
-  - TSLSwiftKit (0.3.2):
+  - TSLSwiftKit (0.4.7):
     - SnapKit
 
 DEPENDENCIES:
@@ -47,8 +47,8 @@ SPEC CHECKSUMS:
   Nimble-Snapshots: ef281b908c604f78c8313587e25ea92c8ab513d7
   Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
-  TSLSwiftKit: ee8b3d4d41df5eaae788db3d70ee42686d9b6925
+  TSLSwiftKit: bb2d964d58a57ba11be620e22370b6df69893305
 
 PODFILE CHECKSUM: d475d1010c130656042d253d499be06ee6acf22f
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.15.2

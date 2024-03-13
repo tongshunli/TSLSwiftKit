@@ -1,0 +1,6 @@
+framework module Pods_TSLSwiftKit_Tests {
+  umbrella header "Pods-TSLSwiftKit_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

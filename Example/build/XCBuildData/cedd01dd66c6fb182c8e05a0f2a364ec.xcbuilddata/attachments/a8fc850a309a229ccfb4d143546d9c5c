@@ -1,0 +1,11 @@
+framework module TSLSwiftKit {
+  umbrella header "TSLSwiftKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module TSLSwiftKit.Swift {
+  header "TSLSwiftKit-Swift.h"
+  requires objc
+}

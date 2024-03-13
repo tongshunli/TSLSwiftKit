@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TSLSwiftKit'
-  s.version          = '0.4.6'
+  s.version          = '0.4.7'
   s.summary          = 'Common methods of Swift and macro definition encapsulation.'
 
 # This description is used to generate tags and improve search results.
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.author           = { 'tongshunli' => '13466621196@163.com' }
   s.source           = { :git => 'https://github.com/tongshunli/TSLSwiftKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '12.0'
 
   s.source_files = 'TSLSwiftKit/Classes/**/*'
   

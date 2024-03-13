@@ -1,0 +1,23 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Release-iphoneos/Nimble-Snapshots/Nimble_Snapshots.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/unextended-module.modulemap",
+    }]
+    },
+    {
+    'type': 'directory',
+    'name': "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Release-iphoneos/Nimble-Snapshots/Nimble_Snapshots.framework/Headers"
+    'contents': [{
+      'type': 'file',
+      'name': "Nimble_Snapshots-Swift.h",
+      'external-contents': "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/unextended-interface-header.h",
+    }]
+    }]
+}

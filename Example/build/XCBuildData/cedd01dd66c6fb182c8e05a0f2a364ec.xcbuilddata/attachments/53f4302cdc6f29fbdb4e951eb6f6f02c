@@ -1,0 +1,5 @@
+ extern const unsigned char TSLSwiftKitVersionString[];
+ extern const double TSLSwiftKitVersionNumber;
+
+ const unsigned char TSLSwiftKitVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:TSLSwiftKit  PROJECT:Pods-1" "\n";
+ const double TSLSwiftKitVersionNumber __attribute__ ((used)) = (double)1.;

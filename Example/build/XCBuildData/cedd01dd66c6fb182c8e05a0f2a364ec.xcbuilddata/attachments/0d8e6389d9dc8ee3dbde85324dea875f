@@ -1,0 +1,45 @@
+{
+  "" : {
+    "const-values" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/Nimble-Snapshots-master.swiftconstvalues",
+    "dependencies" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/Nimble-Snapshots-master.d",
+    "diagnostics" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/Nimble-Snapshots-master.dia",
+    "emit-module-dependencies" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/Nimble-Snapshots-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/Nimble-Snapshots-master-emit-module.dia",
+    "swift-dependencies" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/Nimble-Snapshots-master.swiftdeps"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/Example/Pods/Nimble-Snapshots/Nimble_Snapshots/CurrentTestCaseTracker.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/CurrentTestCaseTracker.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/CurrentTestCaseTracker.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/CurrentTestCaseTracker.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/Example/Pods/Nimble-Snapshots/Nimble_Snapshots/DynamicSize/DynamicSizeSnapshot.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/DynamicSizeSnapshot.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/DynamicSizeSnapshot.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/DynamicSizeSnapshot.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/Example/Pods/Nimble-Snapshots/Nimble_Snapshots/DynamicType/HaveValidDynamicTypeSnapshot.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/HaveValidDynamicTypeSnapshot.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/HaveValidDynamicTypeSnapshot.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/HaveValidDynamicTypeSnapshot.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/Example/Pods/Nimble-Snapshots/Nimble_Snapshots/DynamicType/NBSMockedApplication.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/NBSMockedApplication.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/NBSMockedApplication.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/NBSMockedApplication.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/Example/Pods/Nimble-Snapshots/Nimble_Snapshots/DynamicType/PrettyDynamicTypeSyntax.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/PrettyDynamicTypeSyntax.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/PrettyDynamicTypeSyntax.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/PrettyDynamicTypeSyntax.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/Example/Pods/Nimble-Snapshots/Nimble_Snapshots/HaveValidSnapshot.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/HaveValidSnapshot.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/HaveValidSnapshot.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/HaveValidSnapshot.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/Example/Pods/Nimble-Snapshots/Nimble_Snapshots/PrettySyntax.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/PrettySyntax.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/PrettySyntax.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/Nimble-Snapshots.build/Objects-normal/arm64/PrettySyntax.o"
+  }
+}

@@ -31,21 +31,29 @@ public let kWindow: UIWindow? = {
 
 public let KAppDelegate = UIApplication.shared.delegate
 
-public let kAppCurrentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") // 获取当前版本号
+/// 获取当前版本号
+public let kAppCurrentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString")
 
-public let kAppName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") ?? "" // app名称
+/// app名称
+public let kAppName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") ?? ""
 
-public let kBundleIdentifier = Bundle.main.bundleIdentifier // app包名
+/// app包名
+public let kBundleIdentifier = Bundle.main.bundleIdentifier
 
-public let kSystemVersion = UIDevice.current.systemVersion // 获取设备系统号
+/// 获取设备系统号
+public let kSystemVersion = UIDevice.current.systemVersion
 
-public let kUUID = UIDevice.current.identifierForVendor?.uuidString // UUID
+/// UUID
+public let kUUID = UIDevice.current.identifierForVendor?.uuidString
 
-public let kPhoneModel = UIDevice.current.model // 设备类型
+/// 设备类型
+public let kPhoneModel = UIDevice.current.model
 
-public let kIsIphone = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? true : false // iphone设备
+/// iphone设备
+public let kIsIphone = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? true : false
 
-public let kIsIpad = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad ? true : false // ipad设备
+/// ipad设备
+public let kIsIpad = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad ? true : false
 
 public let kIsIphoneX = (abs(max(kScreenWidth,  kScreenHeight) / min(kScreenWidth, kScreenHeight) - 896 / 414) < 0.01 || abs(max(kScreenWidth,  kScreenHeight) / min(kScreenWidth, kScreenHeight) - 812 / 375) < 0.01)
 

@@ -1,0 +1,85 @@
+{
+  "" : {
+    "const-values" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLSwiftKit-master.swiftconstvalues",
+    "dependencies" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLSwiftKit-master.d",
+    "diagnostics" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLSwiftKit-master.dia",
+    "emit-module-dependencies" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLSwiftKit-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLSwiftKit-master-emit-module.dia",
+    "swift-dependencies" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLSwiftKit-master.swiftdeps"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLBatteryView.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLBatteryView.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLBatteryView.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLBatteryView.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLColorConfig.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLColorConfig.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLColorConfig.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLColorConfig.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLCustomButton.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLCustomButton.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLCustomButton.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLCustomButton.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLExtensionBundle.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionBundle.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionBundle.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionBundle.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLExtensionColor.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionColor.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionColor.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionColor.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLExtensionImage.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionImage.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionImage.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionImage.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLExtensionLabel.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionLabel.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionLabel.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionLabel.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLExtensionString.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionString.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionString.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLExtensionString.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLFrameDefine.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLFrameDefine.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLFrameDefine.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLFrameDefine.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLSystemConfig.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLSystemConfig.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLSystemConfig.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLSystemConfig.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLTopAlertManager.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLTopAlertManager.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLTopAlertManager.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLTopAlertManager.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLTopAlertView.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLTopAlertView.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLTopAlertView.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLTopAlertView.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLUIFactory.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLUIFactory.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLUIFactory.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLUIFactory.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLUtilsHelper.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLUtilsHelper.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLUtilsHelper.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLUtilsHelper.o"
+  },
+  "/Users/tongshunli/Documents/TSLSwiftKit/TSLSwiftKit/Classes/TSLViewHelper.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLViewHelper.o",
+    "llvm-bc" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLViewHelper.bc",
+    "object" : "/Users/tongshunli/Documents/TSLSwiftKit/Example/build/Pods.build/Release-iphoneos/TSLSwiftKit.build/Objects-normal/arm64/TSLViewHelper.o"
+  }
+}

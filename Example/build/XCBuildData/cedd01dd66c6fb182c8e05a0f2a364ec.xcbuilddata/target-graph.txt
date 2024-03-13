@@ -1,0 +1,23 @@
+Target dependency graph (10 targets)
+Target 'Pods-TSLSwiftKit_Tests' in project 'Pods'
+➜ Explicit dependency on target 'FBSnapshotTestCase' in project 'Pods'
+➜ Explicit dependency on target 'Nimble' in project 'Pods'
+➜ Explicit dependency on target 'Nimble-Snapshots' in project 'Pods'
+➜ Explicit dependency on target 'Pods-TSLSwiftKit_Example' in project 'Pods'
+➜ Explicit dependency on target 'Quick' in project 'Pods'
+➜ Explicit dependency on target 'iOSSnapshotTestCase' in project 'Pods'
+Target 'Quick' in project 'Pods' (no dependencies)
+Target 'Pods-TSLSwiftKit_Example' in project 'Pods'
+➜ Explicit dependency on target 'SnapKit' in project 'Pods'
+➜ Explicit dependency on target 'TSLSwiftKit' in project 'Pods'
+Target 'TSLSwiftKit' in project 'Pods'
+➜ Explicit dependency on target 'SnapKit' in project 'Pods'
+➜ Explicit dependency on target 'TSLSwiftKit-TSLSwiftKit' in project 'Pods'
+Target 'TSLSwiftKit-TSLSwiftKit' in project 'Pods' (no dependencies)
+Target 'SnapKit' in project 'Pods' (no dependencies)
+Target 'Nimble-Snapshots' in project 'Pods'
+➜ Explicit dependency on target 'Nimble' in project 'Pods'
+➜ Explicit dependency on target 'iOSSnapshotTestCase' in project 'Pods'
+Target 'iOSSnapshotTestCase' in project 'Pods' (no dependencies)
+Target 'Nimble' in project 'Pods' (no dependencies)
+Target 'FBSnapshotTestCase' in project 'Pods' (no dependencies)

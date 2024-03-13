@@ -1,0 +1,10 @@
+framework module TSLSwiftKit {
+  umbrella header "TSLSwiftKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module TSLSwiftKit.__Swift {
+  exclude header "TSLSwiftKit-Swift.h"
+}
