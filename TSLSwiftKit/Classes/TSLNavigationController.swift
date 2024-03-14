@@ -40,7 +40,6 @@ public class TSLNavigationController: UINavigationController {
         self.isSwitching = false
     }
     
-
     /*
     // MARK: - Navigation
 

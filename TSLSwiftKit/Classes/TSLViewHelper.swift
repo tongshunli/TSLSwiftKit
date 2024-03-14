@@ -27,12 +27,12 @@ public class TSLViewHelper: NSObject {
             result = result?.presentedViewController
         }
         
-        if (result?.isKind(of: UITabBarController.self) != nil)  {
-            result = (result as! UITabBarController).selectedViewController
+        if result?.isKind(of: UITabBarController.self) != nil {
+            result = (result as? UITabBarController)?.selectedViewController
         }
         
-        if (result?.isKind(of: UINavigationController.self) != nil)  {
-            result = (result as! UINavigationController).visibleViewController
+        if result?.isKind(of: UINavigationController.self) != nil {
+            result = (result as? UINavigationController)?.visibleViewController
         }
         
         return result ?? nil
@@ -48,7 +48,7 @@ public class TSLViewHelper: NSObject {
         let paragraphStyle = NSMutableParagraphStyle.init()
         paragraphStyle.lineSpacing = lineHeight
         
-        return floor(string.boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: contentFont, .paragraphStyle: paragraphStyle], context: nil).height) + 1
+        return floor(string.boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin, .usesFontLeading], attributes: [.font: contentFont, .paragraphStyle: paragraphStyle], context: nil).height) + 1
     }
     
     //  计算字符串宽
@@ -58,7 +58,7 @@ public class TSLViewHelper: NSObject {
             return 0.0
         }
         
-        return floor(string.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine , .usesLineFragmentOrigin , .usesFontLeading], attributes: [.font: contentFont], context: nil).width) + kQuarterMargin
+        return floor(string.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin, .usesFontLeading], attributes: [.font: contentFont], context: nil).width) + kQuarterMargin
     }
     
     //  设置边角圆弧
@@ -159,19 +159,22 @@ public class TSLViewHelper: NSObject {
         
         switch image.imageOrientation {
         case .left:
-            textRef?.draw(image.cgImage!, in: CGRectMake(0, 0, image.size.height, image.size.width))
+            textRef?.draw(image.cgImage!, in: CGRect.init(x: 0, y: 0, width: image.size.height, height: image.size.width))
         case .leftMirrored:
-            textRef?.draw(image.cgImage!, in: CGRectMake(0, 0, image.size.height, image.size.width))
+            textRef?.draw(image.cgImage!, in: CGRect.init(x: 0, y: 0, width: image.size.height, height: image.size.width))
         case .right:
-            textRef?.draw(image.cgImage!, in: CGRectMake(0, 0, image.size.height, image.size.width))
+            textRef?.draw(image.cgImage!, in: CGRect.init(x: 0, y: 0, width: image.size.height, height: image.size.width))
         case .rightMirrored:
-            textRef?.draw(image.cgImage!, in: CGRectMake(0, 0, image.size.height, image.size.width))
+            textRef?.draw(image.cgImage!, in: CGRect.init(x: 0, y: 0, width: image.size.height, height: image.size.width))
         default:
-            textRef?.draw(image.cgImage!, in: CGRectMake(0, 0, image.size.width, image.size.height))
+            textRef?.draw(image.cgImage!, in: CGRect.init(x: 0, y: 0, width: image.size.width, height: image.size.height))
         }
         
-        let cgimage = CGContext.makeImage(textRef!)
-        return UIImage(cgImage: cgimage as! CGImage)
+        guard let cgimage = textRef?.makeImage() else {
+            return image
+        }
+
+        return UIImage(cgImage: cgimage)
     }
     
     //  绘制一张全新的图片

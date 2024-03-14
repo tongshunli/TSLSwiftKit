@@ -98,16 +98,12 @@ public class TSLCustomButton: UIButton {
         switch self.buttonIndicatior {
         case .titleLeft:
             self.createCustomButtonIndicatorTitleLeft()
-            break
         case .titleTop:
             self.createCustomButtonIndicatorTitleTop()
-            break
         case .titleRight:
             self.createCustomButtonIndicatorTitleRight()
-            break
         case .titleBottom:
             self.createCustomButtonIndicatorTitleBottom()
-            break
         }
     }
     

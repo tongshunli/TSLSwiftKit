@@ -38,11 +38,11 @@ public class TSLBatteryView: UIView {
         let device = UIDevice.current
         device.isBatteryMonitoringEnabled = true
         
-        NotificationCenter.default.addObserver(forName: UIDevice.batteryLevelDidChangeNotification, object: nil, queue: OperationQueue.main) { [unowned self] notification in
+        NotificationCenter.default.addObserver(forName: UIDevice.batteryLevelDidChangeNotification, object: nil, queue: OperationQueue.main) { [unowned self] _ in
             self.batteryLevelChanged()
         }
         
-        NotificationCenter.default.addObserver(forName: UIDevice.batteryStateDidChangeNotification, object: nil, queue: OperationQueue.main) { [unowned self] notification in
+        NotificationCenter.default.addObserver(forName: UIDevice.batteryStateDidChangeNotification, object: nil, queue: OperationQueue.main) { [unowned self] _ in
             self.batteryStateChanged()
         }
     }
@@ -56,7 +56,7 @@ public class TSLBatteryView: UIView {
         
         self.addSubview(self.batteryLabel)
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [unowned self] timer in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [unowned self] _ in
             self.updateTime()
         })
     }
@@ -162,11 +162,11 @@ public class TSLBatteryView: UIView {
     func changeBatteryState(_ batteryState: TSLBatteryStateColor) {
         switch batteryState {
         case .charging:
-            self.batteryView.backgroundColor = kColorRGB(75, g: 216, b: 102)
+            self.batteryView.backgroundColor = kColorRGB(75, green: 216, blue: 102)
         case .warning:
-            self.batteryView.backgroundColor = kColorRGB(252, g: 62, b: 46)
+            self.batteryView.backgroundColor = kColorRGB(252, green: 62, blue: 46)
         default:
-            self.batteryView.backgroundColor = kColorRGB(131, g: 131, b: 131)
+            self.batteryView.backgroundColor = kColorRGB(131, green: 131, blue: 131)
         }
     }
     

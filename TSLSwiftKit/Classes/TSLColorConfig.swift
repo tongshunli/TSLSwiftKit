@@ -8,25 +8,25 @@
 import UIKit
 
 //  系统色值
-public func kColorRGB(_ r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
-    return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1)
+public func kColorRGB(_ red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
+    return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1)
 }
 
-public func kColorRGBAlpha(_ r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) -> UIColor {
-    return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: a)
+public func kColorRGBAlpha(_ red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
+    return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: alpha)
 }
 
 //  16进制色值
-public func kColorWithRGB16(_ h: Int) -> UIColor {
-    return kColorRGB(CGFloat(((h)>>16) & 0xFF), g: CGFloat(((h)>>8) & 0xFF), b: CGFloat((h) & 0xFF))
+public func kColorWithRGB16(_ rgb: Int) -> UIColor {
+    return kColorRGB(CGFloat(((rgb)>>16) & 0xFF), green: CGFloat(((rgb)>>8) & 0xFF), blue: CGFloat((rgb) & 0xFF))
 }
 
-public func kColorWithRGB16(_ h: Int, a: CGFloat) -> UIColor {
-    return kColorRGBAlpha(CGFloat(((h)>>16) & 0xFF), g: CGFloat(((h)>>8) & 0xFF), b: CGFloat((h) & 0xFF), a: a)
+public func kColorWithRGB16(_ rgb: Int, alpha: CGFloat) -> UIColor {
+    return kColorRGBAlpha(CGFloat(((rgb)>>16) & 0xFF), green: CGFloat(((rgb)>>8) & 0xFF), blue: CGFloat((rgb) & 0xFF), alpha: alpha)
 }
 
 //  字符串色值
-public func kColorWithHexString(_ color: String, a: CGFloat) -> UIColor {
+public func kColorWithHexString(_ color: String, alpha: CGFloat) -> UIColor {
     
     var cString = color.removeSpaces()
     
@@ -48,40 +48,39 @@ public func kColorWithHexString(_ color: String, a: CGFloat) -> UIColor {
         return kClearColor
     }
     
-    var range = NSMakeRange(0, 2)
+    var range = NSRange(location: 0, length: 2)
     
     let tmpStr2: NSString = cString as NSString
     
     let rString = tmpStr2.substring(with: range)
     
-    range = NSMakeRange(2, 2)
+    range = NSRange(location: 2, length: 2)
     
     let gString = tmpStr2.substring(with: range)
     
-    range = NSMakeRange(4, 2)
+    range = NSRange(location: 4, length: 2)
     
     let bString = tmpStr2.substring(with: range)
     
-    var r: UInt64 = 0
+    var red: UInt64 = 0
     
-    var g: UInt64 = 0
+    var green: UInt64 = 0
     
-    var b: UInt64 = 0
+    var blue: UInt64 = 0
     
-    Scanner(string: rString).scanHexInt64(&r)
+    Scanner(string: rString).scanHexInt64(&red)
     
-    Scanner(string: gString).scanHexInt64(&g)
+    Scanner(string: gString).scanHexInt64(&green)
     
-    Scanner(string: bString).scanHexInt64(&b)
+    Scanner(string: bString).scanHexInt64(&blue)
     
-    return kColorRGBAlpha(CGFloat(r), g: CGFloat(g), b: CGFloat(b), a: a)
+    return kColorRGBAlpha(CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: alpha)
 }
 
 public func kColorWithHexString(_ color: String) -> UIColor {
-    return kColorWithHexString(color, a: 1.0)
+    return kColorWithHexString(color, alpha: 1.0)
 }
 
 public let kClearColor = UIColor.clear
 
 public let kWhiteColor = UIColor.white
-

@@ -9,7 +9,7 @@ import UIKit
 
 public class TSLSearchView: UIView {
 
-    public var searchConfirmBlock: ((_ searchWord: String) -> Void) = {searchWord in }
+    public var searchConfirmBlock: ((_ searchWord: String) -> Void) = {_ in }
         
     var searchBarCleanText: () -> Void = {}
   
@@ -24,7 +24,7 @@ public class TSLSearchView: UIView {
     }
     
     func createSubviews() {
-        self.backgroundColor = kColorRGB(249, g: 249, b: 249)
+        self.backgroundColor = kColorRGB(249, green: 249, blue: 249)
         
         self.addSubview(self.searchImageView)
         
@@ -45,7 +45,7 @@ public class TSLSearchView: UIView {
     
     public lazy var searchImageView: UIImageView = {
         var searchImageView = TSLUIFactory.imageView()
-        searchImageView.image = Bundle.getBundleImageWithName("search");
+        searchImageView.image = Bundle.getBundleImageWithName("search")
         return searchImageView
     }()
     
@@ -60,7 +60,7 @@ public class TSLSearchView: UIView {
         let rightImageView = TSLUIFactory.imageView()
         rightImageView.frame = CGRect(x: 0, y: 0, width: 18.0, height: 18.0)
         rightImageView.image = Bundle.getBundleImageWithName("search")?.withRenderingMode(.alwaysTemplate)
-        rightImageView.tintColor = kColorRGB(156, g: 155, b: 157)
+        rightImageView.tintColor = kColorRGB(156, green: 155, blue: 157)
         
         let rightView = TSLUIFactory.view()
         rightView.frame = CGRect(x: 0, y: 0, width: 30, height: self.frame.size.height)
@@ -70,7 +70,7 @@ public class TSLSearchView: UIView {
         rightImageView.center = rightView.center
         
         searchTextField.rightViewMode = .always
-        searchTextField.rightView = rightView;
+        searchTextField.rightView = rightView
         return searchTextField
     }()
     
@@ -83,7 +83,7 @@ public class TSLSearchView: UIView {
     public var placeholderText: String? {
 
         didSet {
-            let attrString = NSAttributedString.init(string: placeholderText ?? "", attributes: [NSAttributedString.Key.foregroundColor: kColorRGB(156, g: 155, b: 157), NSAttributedString.Key.font: kFont(16)])
+            let attrString = NSAttributedString.init(string: placeholderText ?? "", attributes: [NSAttributedString.Key.foregroundColor: kColorRGB(156, green: 155, blue: 157), NSAttributedString.Key.font: kFont(16)])
 
             self.searchTextField.attributedPlaceholder = attrString
         }

@@ -10,39 +10,39 @@ import UIKit
 
 public enum TSLGradientChangeDirection: Int {
     case level              = 0 // 水平方向上渐变
-    case Vertical           = 1 // 竖直方向上渐变
-    case UpwardDiagonalLine = 2 // 向下对角线渐变
-    case DownDiagonalLine   = 3 // 向上对角线渐变
+    case vertical           = 1 // 竖直方向上渐变
+    case upwardDiagonalLine = 2 // 向下对角线渐变
+    case downDiagonalLine   = 3 // 向上对角线渐变
 }
 
 extension UIColor {
     
     public class func colorGradientChangeWithSize(_ size: CGSize, direction: TSLGradientChangeDirection, startColor: UIColor, endColor: UIColor) -> UIColor {
-        if CGSizeEqualToSize(size, CGSizeZero) {
+        if CGSizeEqualToSize(size, CGSize.zero) {
             return UIColor.clear
         }
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         
-        var startPoint = CGPointZero
+        var startPoint = CGPoint.zero
         
-        if direction == .DownDiagonalLine {
+        if direction == .downDiagonalLine {
             startPoint = CGPoint(x: 0.0, y: 1.0)
         }
         
         gradientLayer.startPoint = startPoint
         
-        var endPoint = CGPointZero
+        var endPoint = CGPoint.zero
         
         switch direction {
-        case .level :
+        case .level:
             endPoint = CGPoint(x: 1.0, y: 0.0)
-        case .Vertical :
+        case .vertical:
             endPoint = CGPoint(x: 0.0, y: 1.0)
-        case .UpwardDiagonalLine :
+        case .upwardDiagonalLine:
             endPoint = CGPoint(x: 1.0, y: 1.0)
-        case .DownDiagonalLine :
+        case .downDiagonalLine:
             endPoint = CGPoint(x: 1.0, y: 0.0)
         }
         

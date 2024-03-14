@@ -45,4 +45,3 @@ public func kFont(_ fontSize: CGFloat) -> UIFont {
 public func kBoldFont(_ fontSize: CGFloat) -> UIFont {
     return UIFont.boldSystemFont(ofSize: fontSize)
 }
-

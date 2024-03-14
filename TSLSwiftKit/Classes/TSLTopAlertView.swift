@@ -55,7 +55,7 @@ class TSLTopAlertView: UIView {
     
     lazy var alertImageView: UIImageView = {
         var alertImageView = TSLUIFactory.imageView()
-        alertImageView.frame = CGRectMake(kMargin, kNavbarHeight - 32, kMargin, kMargin)
+        alertImageView.frame = CGRect.init(x: kMargin, y: kNavbarHeight - 32, width: kMargin, height: kMargin)
         return alertImageView
     }()
     
@@ -72,7 +72,7 @@ class TSLTopAlertView: UIView {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: kAnimatedDuration, delay: 1, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: .showHideTransitionViews) { [unowned self] in
                     self.alertBottonView.frame = CGRect(x: 0, y: -kNavbarHeight, width: kScreenWidth, height: kNavbarHeight)
-                } completion: {[unowned self] finish in
+                } completion: {[unowned self] _ in
                     self.removeAlertView()
                 }
             }
@@ -118,7 +118,7 @@ class TSLTopAlertView: UIView {
         
         UIView.animate(withDuration: kAnimatedDuration, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0) { [unowned self] in
             self.alertBottonView.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: kNavbarHeight)
-        } completion: { finish in
+        } completion: { _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: { [unowned self] in
                 self.hiddenAlertView()
             })

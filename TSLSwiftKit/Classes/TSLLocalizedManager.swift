@@ -19,7 +19,7 @@ public enum LocalizedLanguage: Int {
 }
 
 //  用户设置的语言
-let TSL_User_Language = "TSL_User_Language"
+let TSLUserLanguage = "TSL_User_Language"
 
 public func TSLLocalizedString(_ key: String) -> String {
     return TSLLocalizedManager.stringWithKey(key)
@@ -42,60 +42,60 @@ public class TSLLocalizedManager: NSObject {
     
     //  用户本地语言,如果语言包中没有,返回默认值
     public class func getUserLanguageName() -> String {
-        let userLanguageName = UserDefaults.standard.string(forKey: TSL_User_Language)
+        let userLanguageName = UserDefaults.standard.string(forKey: TSLUserLanguage)
         
-        return userLanguageName ?? TSLLocalizedManager.StringFromLocalizedLanguage(.defaultLanguage)
+        return userLanguageName ?? TSLLocalizedManager.stringFromLocalizedLanguage(.defaultLanguage)
     }
     
     //  设置默认语言
-    public class func setUpDefaultLanguage(_ language: String) -> Void {
+    public class func setUpDefaultLanguage(_ language: String) {
         self.defaultLanguage = language
     }
     
     /// 获取当前语言
     public class func getUserLanguage() -> LocalizedLanguage {
-        return self.LocalizedLanguageFromString(TSLLocalizedManager.getUserLanguageName())
+        return self.localizedLanguageFromString(TSLLocalizedManager.getUserLanguageName())
     }
     
-    class func StringFromLocalizedLanguage(_ language: LocalizedLanguage) -> String {
+    class func stringFromLocalizedLanguage(_ language: LocalizedLanguage) -> String {
         switch language {
-        case .english :
+        case .english:
             return "en"
-        case .simplifiedChinese :
+        case .simplifiedChinese:
             return "zh-Hans"
-        case .traditionalChinese :
+        case .traditionalChinese:
             return "zh-Hant"
-        case .tail :
+        case .tail:
             return "th"
-        case .spanish :
+        case .spanish:
             return "es"
-        case .portugal :
+        case .portugal:
             return "pt-PT"
-        case .defaultLanguage :
+        case .defaultLanguage:
             let languages = Locale.preferredLanguages
-            let t_language = TSLLocalizedManager.LocalizedLanguageFromString(languages.first ?? "")
-            if t_language == .defaultLanguage {
+            let tmpLanguage = TSLLocalizedManager.localizedLanguageFromString(languages.first ?? "")
+            if tmpLanguage == .defaultLanguage {
                 return TSLLocalizedManager.defaultLanguage
             }
-            return TSLLocalizedManager.StringFromLocalizedLanguage(t_language)
+            return TSLLocalizedManager.stringFromLocalizedLanguage(tmpLanguage)
         }
     }
     
-    public class func LocalizedLanguageFromString(_ language: String) -> LocalizedLanguage {
+    public class func localizedLanguageFromString(_ language: String) -> LocalizedLanguage {
         switch language {
-        case "en" :
+        case "en":
             return .english
-        case "zh-Hans" :
+        case "zh-Hans":
             return .simplifiedChinese
-        case "zh-Hant" :
+        case "zh-Hant":
             return .traditionalChinese
-        case "th" :
+        case "th":
             return .tail
-        case "es" :
+        case "es":
             return .spanish
-        case "pt-PT" :
+        case "pt-PT":
             return .portugal
-        default :
+        default:
             return .defaultLanguage
         }
     }

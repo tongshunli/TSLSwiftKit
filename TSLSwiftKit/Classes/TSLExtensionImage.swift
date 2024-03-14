@@ -12,7 +12,7 @@ extension UIImage {
     
     //  颜色透明度、半径、色彩饱和度
     public func imgWithLightAlpha(_ alpha: CGFloat, radius: CGFloat, colorSaturationFactor: CGFloat) -> UIImage {
-        let tintColor = kColorRGBAlpha(180, g: 180, b: 180, a: alpha)
+        let tintColor = kColorRGBAlpha(180, green: 180, blue: 180, alpha: alpha)
         return self.imgBluredWithRadius(radius, tintColor: tintColor, saturationDeltaFactor: colorSaturationFactor, maskImage: nil)
     }
     
@@ -60,12 +60,9 @@ extension UIImage {
             }
             
             if hasSaturationChange {
-                let s = saturationDeltaFactor
+                let satur = saturationDeltaFactor
                 
-                let floatingPointSaturationMatrix = [0.0722 + 0.9278 * s,  0.0722 - 0.0722 * s,  0.0722 - 0.0722 * s,  0,
-                                                     0.7152 - 0.7152 * s,  0.7152 + 0.2848 * s,  0.7152 - 0.7152 * s,  0,
-                                                     0.2126 - 0.2126 * s,  0.2126 - 0.2126 * s,  0.2126 + 0.7873 * s,  0,
-                                                     0,                    0,                    0,  1,]
+                let floatingPointSaturationMatrix = [0.0722 + 0.9278 * satur, 0.0722 - 0.0722 * satur, 0.0722 - 0.0722 * satur, 0, 0.7152 - 0.7152 * satur, 0.7152 + 0.2848 * satur, 0.7152 - 0.7152 * satur, 0, 0.2126 - 0.2126 * satur, 0.2126 - 0.2126 * satur, 0.2126 + 0.7873 * satur, 0, 0, 0, 0, 1]
                 let divisor: CGFloat = 256
                 
                 let matrixSize = MemoryLayout.size(ofValue: floatingPointSaturationMatrix) / MemoryLayout.size(ofValue: floatingPointSaturationMatrix[0])
@@ -122,5 +119,5 @@ extension UIImage {
         
         return outputImage!
     }
-    
+
 }

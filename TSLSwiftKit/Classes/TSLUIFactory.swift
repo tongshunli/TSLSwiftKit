@@ -48,7 +48,7 @@ public class TSLUIFactory: UIView {
     
     public class func textField(_ textFont: UIFont, textColor: UIColor, placeholder: String) -> UITextField {
         let textField = UITextField.init()
-        textField.font = textFont;
+        textField.font = textFont
         textField.textColor = textColor
         textField.placeholder = placeholder
         textField.clearButtonMode = .whileEditing

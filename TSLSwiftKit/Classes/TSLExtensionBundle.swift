@@ -15,12 +15,12 @@ extension Bundle {
         
         let bundlePath = currentBundle.path(forResource: "TSLSwiftKit", ofType: "bundle") ?? ""
         
-        let resource_bundle = Bundle(path: bundlePath)
+        let resourceBundle = Bundle(path: bundlePath)
         
-        if resource_bundle == nil {
+        if resourceBundle == nil {
             return nil
         }
-        return UIImage(named: name, in: resource_bundle, compatibleWith: nil)!
+        return UIImage(named: name, in: resourceBundle, compatibleWith: nil)!
     }
     
 }

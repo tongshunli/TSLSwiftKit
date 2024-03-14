@@ -17,7 +17,7 @@ public enum TSLValidateType: Int {
     case password = 4
     case nickname = 5
     case URL = 6
-    case IP = 7
+    case iPAddress = 7
 }
 
 public class TSLUtilsHelper: NSObject {
@@ -32,7 +32,7 @@ public class TSLUtilsHelper: NSObject {
         let utf8 = strs.cString(using: .utf8)
         var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
         CC_MD5(utf8, CC_LONG(utf8!.count - 1), &digest)
-        return digest.reduce("") { $0 + String(format:"%02X", $1) }
+        return digest.reduce("") { $0 + String(format: "%02X", $1) }
     }
     
     public class func changeIntMethod(_ targetStr: String?) -> Int {
@@ -68,7 +68,7 @@ public class TSLUtilsHelper: NSObject {
             do {
                 let dic = try JSONSerialization.jsonObject(with: jsonData!)
                 
-                return dic as! NSDictionary
+                return dic as? NSDictionary ?? NSDictionary()
             } catch {
                 
             }
@@ -97,7 +97,7 @@ public class TSLUtilsHelper: NSObject {
             predicateStr = "^[\\u4e00-\\u9fa5]{4,8}$"
         case .URL:
             predicateStr = "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"
-        case .IP:
+        case .iPAddress:
             predicateStr = "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
         }
         
