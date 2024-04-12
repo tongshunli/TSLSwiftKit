@@ -81,7 +81,7 @@ class TSLTopAlertView: UIView {
     
     lazy var alertBottonView: UIView = {
         var alertBottonView = TSLUIFactory.view()
-        alertBottonView.backgroundColor = kWhiteColor
+        alertBottonView.backgroundColor = kClearColor
         alertBottonView.frame = CGRect(x: 0, y: -kNavbarHeight, width: kScreenWidth, height: kNavbarHeight)
         return alertBottonView
     }()

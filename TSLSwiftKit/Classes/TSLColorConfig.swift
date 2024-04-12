@@ -83,4 +83,3 @@ public func kColorWithHexString(_ color: String) -> UIColor {
 
 public let kClearColor = UIColor.clear
 
-public let kWhiteColor = UIColor.white
