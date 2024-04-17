@@ -19,7 +19,7 @@ public enum LocalizedLanguage: Int {
 }
 
 //  用户设置的语言
-let TSLUserLanguage = "TSL_User_Language"
+let TSLUserLanguage = "TSLUserLanguage"
 
 public func TSLLocalizedString(_ key: String) -> String {
     return TSLLocalizedManager.stringWithKey(key)
@@ -57,7 +57,7 @@ public class TSLLocalizedManager: NSObject {
         return self.localizedLanguageFromString(TSLLocalizedManager.getUserLanguageName())
     }
     
-    class func stringFromLocalizedLanguage(_ language: LocalizedLanguage) -> String {
+    public class func stringFromLocalizedLanguage(_ language: LocalizedLanguage) -> String {
         switch language {
         case .english:
             return "en"
@@ -100,4 +100,9 @@ public class TSLLocalizedManager: NSObject {
         }
     }
 
+    /// 设置APP语言
+    public class func setLanguage(_ language: LocalizedLanguage) {
+        UserDefaults.standard.setValue(stringFromLocalizedLanguage(language), forKey: TSLUserLanguage)
+    }
+    
 }
