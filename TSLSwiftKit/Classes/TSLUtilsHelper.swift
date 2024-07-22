@@ -40,13 +40,13 @@ public class TSLUtilsHelper: NSObject {
         return tmpStr.integerValue
     }
     
-    //  判断字符串是否为空
+    // MARK: 判断字符串是否为空
     public class func stringIsReBlank(_ str: String?) -> Bool {
         let chare = str?.trimmingCharacters(in: .whitespacesAndNewlines)
         return chare?.isEmpty ?? true
     }
     
-    //  字典转字符串
+    // MARK: 字典转字符串
     public class func dictionaryToJsonString(_ dict: NSDictionary?) -> String {
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: dict as Any)
@@ -60,7 +60,7 @@ public class TSLUtilsHelper: NSObject {
         return ""
     }
     
-    //  字符串转字典
+    // MARK: 字符串转字典
     public class func jsonStringToDictionary(_ jsonString: String?) -> NSDictionary {
         if jsonString != nil {
             let jsonData = jsonString!.data(using: .utf8)
@@ -77,7 +77,7 @@ public class TSLUtilsHelper: NSObject {
         return [:]
     }
     
-    //  格式验证
+    // MARK: 格式验证
     public class func formatValidation(_ verify: String, validateType: TSLValidateType) -> Bool {
         
         var predicateStr: String?

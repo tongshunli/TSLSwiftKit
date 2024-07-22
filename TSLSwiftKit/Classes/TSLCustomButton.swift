@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-//  支持的样式
+// MARK: 支持的样式
 public enum TSLCustomButtonIndicator: Int {
     case titleLeft = 0 // 文字左 图片右
     case titleRight = 1 // 文字右 图片左
@@ -24,14 +24,14 @@ public class TSLCustomButton: UIButton {
     
     public var buttonIndicatior: TSLCustomButtonIndicator = .titleLeft
     
-    //  图文间距,默认10
+    // MARK: 图文间距,默认10
     public var graphicDistance: CGFloat = 10.0
       
-    //  图片尺寸
+    // MARK: 图片尺寸
     public var buttonImageWidth: CGFloat = 0.0
     public var buttonImageHeight: CGFloat = 0.0
     
-    //  默认字号
+    // MARK: 默认字号
     public var buttonTitleFont: UIFont = kFont(12)
     
     public init(_ frame: CGRect, buttonTitle: String, buttonTitleFont: UIFont, buttonImageName: String, buttonIndicatior: TSLCustomButtonIndicator) {
@@ -107,7 +107,7 @@ public class TSLCustomButton: UIButton {
         }
     }
     
-    //  文字左,图片右
+    // MARK: 文字左,图片右
     func createCustomButtonIndicatorTitleLeft() {
         if self.buttonTitle.count > 0 && self.buttonImageName.count > 0 {
             self.buttonTitleLabel.snp.makeConstraints { make in
@@ -135,17 +135,17 @@ public class TSLCustomButton: UIButton {
         }
     }
     
-    //  文字右,图片左
+    // MARK: 文字右,图片左
     func createCustomButtonIndicatorTitleRight() {
         
     }
     
-    //  文字上,图片下
+    // MARK: 文字上,图片下
     func createCustomButtonIndicatorTitleTop() {
         
     }
     
-    //  文字下,图片上
+    // MARK: 文字下,图片上
     func createCustomButtonIndicatorTitleBottom() {
         
     }

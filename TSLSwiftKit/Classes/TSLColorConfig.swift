@@ -7,7 +7,7 @@
 
 import UIKit
 
-//  系统色值
+// MARK: 系统色值
 public func kColorRGB(_ red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
     return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1)
 }
@@ -16,7 +16,7 @@ public func kColorRGBAlpha(_ red: CGFloat, green: CGFloat, blue: CGFloat, alpha:
     return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: alpha)
 }
 
-//  16进制色值
+// MARK: 16进制色值
 public func kColorWithRGB16(_ rgb: Int) -> UIColor {
     return kColorRGB(CGFloat(((rgb)>>16) & 0xFF), green: CGFloat(((rgb)>>8) & 0xFF), blue: CGFloat((rgb) & 0xFF))
 }
@@ -25,7 +25,7 @@ public func kColorWithRGB16(_ rgb: Int, alpha: CGFloat) -> UIColor {
     return kColorRGBAlpha(CGFloat(((rgb)>>16) & 0xFF), green: CGFloat(((rgb)>>8) & 0xFF), blue: CGFloat((rgb) & 0xFF), alpha: alpha)
 }
 
-//  字符串色值
+// MARK: 字符串色值
 public func kColorWithHexString(_ color: String, alpha: CGFloat) -> UIColor {
     
     var cString = color.removeSpaces()

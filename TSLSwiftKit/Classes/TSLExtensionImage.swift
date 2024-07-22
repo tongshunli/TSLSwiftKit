@@ -10,13 +10,13 @@ import Accelerate
 
 extension UIImage {
     
-    //  颜色透明度、半径、色彩饱和度
+    // MARK: 颜色透明度、半径、色彩饱和度
     public func imgWithLightAlpha(_ alpha: CGFloat, radius: CGFloat, colorSaturationFactor: CGFloat) -> UIImage {
         let tintColor = kColorRGBAlpha(180, green: 180, blue: 180, alpha: alpha)
         return self.imgBluredWithRadius(radius, tintColor: tintColor, saturationDeltaFactor: colorSaturationFactor, maskImage: nil)
     }
     
-    //  内部方法,核心代码,封装了毛玻璃效果 参数:半径,颜色,色彩饱和度
+    // MARK: 内部方法,核心代码,封装了毛玻璃效果 参数:半径,颜色,色彩饱和度
     func imgBluredWithRadius(_ blurRadius: CGFloat, tintColor: UIColor, saturationDeltaFactor: CGFloat, maskImage: UIImage?) -> UIImage {
     
         let imageRect = CGRect(origin: CGPoint.zero, size: self.size)

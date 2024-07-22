@@ -18,7 +18,7 @@ public enum LocalizedLanguage: Int {
     case portugal           = 6 //  葡萄牙语
 }
 
-//  用户设置的语言
+// MARK: 用户设置的语言
 let TSLUserLanguage = "TSLUserLanguage"
 
 public func TSLLocalizedString(_ key: String) -> String {
@@ -27,7 +27,7 @@ public func TSLLocalizedString(_ key: String) -> String {
 
 public class TSLLocalizedManager: NSObject {
 
-    //  语言库没有时的默认语言
+    // MARK: 语言库没有时的默认语言
     static var defaultLanguage = "en"
     
     public class func stringWithKey(_ key: String) -> String {
@@ -40,19 +40,19 @@ public class TSLLocalizedManager: NSObject {
         return languageBundle
     }()
     
-    //  用户本地语言,如果语言包中没有,返回默认值
+    // MARK: 用户本地语言,如果语言包中没有,返回默认值
     public class func getUserLanguageName() -> String {
         let userLanguageName = UserDefaults.standard.string(forKey: TSLUserLanguage)
         
         return userLanguageName ?? TSLLocalizedManager.stringFromLocalizedLanguage(.defaultLanguage)
     }
     
-    //  设置默认语言
+    // MARK: 设置默认语言
     public class func setUpDefaultLanguage(_ language: String) {
         self.defaultLanguage = language
     }
     
-    /// 获取当前语言
+    // MARK: 获取当前语言
     public class func getUserLanguage() -> LocalizedLanguage {
         return self.localizedLanguageFromString(TSLLocalizedManager.getUserLanguageName())
     }
@@ -100,7 +100,7 @@ public class TSLLocalizedManager: NSObject {
         }
     }
 
-    /// 设置APP语言
+    // MARK: 设置APP语言
     public class func setLanguage(_ language: LocalizedLanguage) {
         UserDefaults.standard.setValue(stringFromLocalizedLanguage(language), forKey: TSLUserLanguage)
     }

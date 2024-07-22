@@ -11,25 +11,16 @@ public let kScreenWidth = UIScreen.main.bounds.size.width
 
 public let kScreenHeight = UIScreen.main.bounds.size.height
 
-public let kMargin = 20.0
-
-public let kMoreHalfMargin = 15.0
-
-public let kHalfMargin = 10.0
-
-public let kQuarterMargin = 5.0
-
-public let kLineHeight = 0.5
-
 public let kStatusBarHeight = kWindow?.safeAreaInsets.top ?? (kIsIphoneX ? 44.0 : 20.0)
 
 public let kNavbarHeight = kStatusBarHeight + 44.0
 
 public let kTabbarHeight = (kWindow?.safeAreaInsets.bottom ?? (kIsIphoneX ? 34.0 : 0)) + 49.0
 
-public let kAnimatedDuration = 0.4 // 动画时长
+// MARK: 动画时长
+public let kAnimatedDuration = 0.4
 
-//  根据比例缩放
+// MARK: 根据比例缩放
 public func kGeometricHeight(_ width: CGFloat, proportionWidth: CGFloat, proportionHeight: CGFloat) -> CGFloat {
     return floor(width * proportionHeight / proportionWidth)
 }

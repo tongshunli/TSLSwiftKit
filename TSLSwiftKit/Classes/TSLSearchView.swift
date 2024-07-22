@@ -29,7 +29,7 @@ public class TSLSearchView: UIView {
         self.addSubview(self.searchImageView)
         
         self.searchImageView.snp.makeConstraints { make in
-            make.right.equalTo(-kHalfMargin)
+            make.right.equalTo(-10.0)
             make.width.height.equalTo(18)
             make.centerY.equalToSuperview()
         }
@@ -37,8 +37,8 @@ public class TSLSearchView: UIView {
         self.addSubview(self.searchTextField)
         
         self.searchTextField.snp.makeConstraints { make in
-            make.left.equalTo(kHalfMargin)
-            make.right.equalTo(-kHalfMargin)
+            make.left.equalTo(10.0)
+            make.right.equalTo(-10.0)
             make.top.bottom.equalToSuperview()
         }
     }

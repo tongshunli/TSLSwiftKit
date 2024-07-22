@@ -16,11 +16,11 @@ public class TSLUIFactory: UIView {
         return view
     }
     
-    public class func label(_ textFont: UIFont, textColor: UIColor) -> UILabel {
+    public class func label(_ textFont: UIFont, textColor: UIColor?) -> UILabel {
         let label = UILabel.init()
         label.font = textFont
         label.layer.masksToBounds = true
-        label.textColor = textColor
+        label.textColor = textColor ?? UIColor.black
         return label
     }
     
@@ -79,7 +79,7 @@ public class TSLUIFactory: UIView {
         tableView.separatorStyle = .none
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.estimatedRowHeight = 44.0
-        tableView.sectionFooterHeight = kHalfMargin
+        tableView.sectionFooterHeight = 10.0
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }
@@ -96,14 +96,6 @@ public class TSLUIFactory: UIView {
         return collectionView
     }
     
-    //  暗黑模式图片
-    public class func themeImage(_ imageName: String) -> UIImage? {
-        if kIsDarkMode {
-            return UIImage(named: "\(imageName)_dark")
-        } else {
-            return UIImage(named: imageName)
-        }
-    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

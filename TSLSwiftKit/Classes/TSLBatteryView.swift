@@ -98,7 +98,7 @@ public class TSLBatteryView: UIView {
         return batteryLabel
     }()
     
-    //  电量状态发生变化
+    // MARK: 电量状态发生变化
     func batteryLevelChanged() {
         let device = UIDevice.current
         device.isBatteryMonitoringEnabled = true
@@ -122,7 +122,7 @@ public class TSLBatteryView: UIView {
         self.batteryView.frame = frame
     }
     
-    //  当前时间
+    // MARK: 当前时间
     func updateTime() {
         let now = Date()
         
@@ -145,7 +145,7 @@ public class TSLBatteryView: UIView {
         }
     }
     
-    //  电池状态发生变化
+    // MARK: 电池状态发生变化
     func batteryStateChanged() {
         switch UIDevice.current.batteryState {
         case .unplugged:

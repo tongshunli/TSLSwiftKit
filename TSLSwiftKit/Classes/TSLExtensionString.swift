@@ -29,12 +29,12 @@ extension String {
         return from ..< toEnd
     }
    
-    /// 删除字符串中的空格
+    // MARK: 删除字符串中的空格
     public func removeSpaces() -> String {
         return self.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
     }
     
-    /// 拼接URL
+    // MARK: 拼接URL
     public func splicingURL(_ dict: [String: Any]) -> String {
         var tmpStr = self.chineseUrl()
         
@@ -50,7 +50,7 @@ extension String {
         return self
     }
     
-    ///  处理中文链接
+    // MARK: 处理中文链接
     public func chineseUrl() -> String {
         
         if containChinese() {
@@ -59,12 +59,12 @@ extension String {
         return self
     }
     
-    /// 包含中文信息
+    // MARK: 包含中文信息
     public func containChinese() -> Bool {
         return self.range(of: "\\p{Han}", options: .regularExpression) != nil
     }
     
-    /// 返回一个处理好的URL
+    // MARK: 返回一个处理好的URL
     public func getUrl() -> URL? {
         return URL(string: self.chineseUrl())
     }

@@ -10,7 +10,7 @@ import CoreGraphics
 
 public class TSLViewHelper: NSObject {
 
-    //  获取RootController
+    // MARK: 获取RootController
     public class func getWindowRootController() -> UIViewController {
         var rootController = kWindow?.rootViewController
         while rootController?.presentedViewController != nil {
@@ -19,7 +19,7 @@ public class TSLViewHelper: NSObject {
         return rootController!
     }
     
-    //  获取当前Controller
+    // MARK: 获取当前Controller
     public class func getCurrentViewController() -> UIViewController? {
         var result = kWindow?.rootViewController
         
@@ -38,7 +38,7 @@ public class TSLViewHelper: NSObject {
         return result ?? nil
     }
     
-    //  计算字符串高
+    // MARK: 计算字符串高
     public class func getStringHeight(_ string: String, maxWidth: CGFloat, contentFont: UIFont, lineHeight: CGFloat) -> CGFloat {
                 
         if string == "" {
@@ -48,20 +48,20 @@ public class TSLViewHelper: NSObject {
         let paragraphStyle = NSMutableParagraphStyle.init()
         paragraphStyle.lineSpacing = lineHeight
         
-        return floor(string.boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin, .usesFontLeading], attributes: [.font: contentFont, .paragraphStyle: paragraphStyle], context: nil).height) + 1
+        return floor(string.boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin, .usesFontLeading], attributes: [.font: contentFont, .paragraphStyle: paragraphStyle], context: nil).height) + 1.0
     }
     
-    //  计算字符串宽
+    // MARK: 计算字符串宽
     public class func getStringWidth(_ string: String, contentFont: UIFont) -> CGFloat {
                 
         if string == "" {
             return 0.0
         }
         
-        return floor(string.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin, .usesFontLeading], attributes: [.font: contentFont], context: nil).width) + kQuarterMargin
+        return floor(string.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin, .usesFontLeading], attributes: [.font: contentFont], context: nil).width) + 1.0
     }
     
-    //  设置边角圆弧
+    // MARK: 设置边角圆弧
     public class func setCornerWithLeftTopCorner(_ leftTop: CGFloat, rightTop: CGFloat, bottemLeft: CGFloat, bottemRight: CGFloat, view: UIView, frame: CGRect) {
      
         let width = frame.size.width
@@ -90,7 +90,7 @@ public class TSLViewHelper: NSObject {
         view.layer.mask = maskLayer
     }
     
-    //  将图片转换成字符串
+    // MARK: 将图片转换成字符串
     public class func getBase64StringWithImageData(_ imageData: Data?) -> String {
         if imageData == nil {
             return ""
@@ -106,7 +106,7 @@ public class TSLViewHelper: NSObject {
         return self.imageToString(self.imageWithImage(fixImage))
     }
     
-    //  更正图片方向
+    // MARK: 更正图片方向
     class func fixOrientation(_ image: UIImage) -> UIImage {
         if image.imageOrientation == .up {
             return image
@@ -177,7 +177,7 @@ public class TSLViewHelper: NSObject {
         return UIImage(cgImage: cgimage)
     }
     
-    //  绘制一张全新的图片
+    // MARK: 绘制一张全新的图片
     class func imageWithImage(_ image: UIImage) -> UIImage {
         UIGraphicsBeginImageContext(CGSize.init(width: image.size.width, height: image.size.height))
         image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
@@ -189,7 +189,7 @@ public class TSLViewHelper: NSObject {
         return newImage!
     }
     
-    //  图片信息转字符串
+    // MARK: 图片信息转字符串
     class func imageToString(_ image: UIImage) -> String {
         let imageData = image.jpegData(compressionQuality: 0.7)
         
@@ -199,5 +199,5 @@ public class TSLViewHelper: NSObject {
         
         return ""
     }
-    
+
 }

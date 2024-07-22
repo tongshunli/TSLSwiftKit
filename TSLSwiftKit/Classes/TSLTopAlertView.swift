@@ -14,7 +14,7 @@ public enum TSLAlertType: Int {
 
 class TSLTopAlertView: UIView {
     
-    //  已经隐藏
+    // MARK: 已经隐藏
     var alertViewIsHidden: Bool = false
     
     public override init(frame: CGRect) {
@@ -55,7 +55,7 @@ class TSLTopAlertView: UIView {
     
     lazy var alertImageView: UIImageView = {
         var alertImageView = TSLUIFactory.imageView()
-        alertImageView.frame = CGRect.init(x: kMargin, y: kNavbarHeight - 32, width: kMargin, height: kMargin)
+        alertImageView.frame = CGRect.init(x: 20.0, y: kNavbarHeight - 32, width: 20.0, height: 20.0)
         return alertImageView
     }()
     
@@ -92,14 +92,14 @@ class TSLTopAlertView: UIView {
         self.removeFromSuperview()
     }
     
-    // 提示语
+    // MARK: 提示语
     var alertTitle: String? {
         didSet {
             self.alertTitleLabel.text = alertTitle
         }
     }
     
-    //  成功或失败
+    // MARK: 成功或失败
     var alertType: TSLAlertType? {
         didSet {
             if alertType == .success {
