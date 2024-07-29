@@ -7,7 +7,7 @@
 
 import UIKit
 
-//  支持语言类型
+// MARK: 支持语言类型
 public enum LocalizedLanguage: Int {
     case defaultLanguage    = 0 //  跟随系统
     case simplifiedChinese  = 1 //  简体中文

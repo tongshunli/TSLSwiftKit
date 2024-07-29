@@ -22,6 +22,14 @@ public enum TSLValidateType: Int {
 
 public class TSLUtilsHelper: NSObject {
     
+    // MARK: 获取当前时间(秒)
+    public class func timestamp() -> Int {
+        let date = NSDate()
+        let seconds = date.timeIntervalSince1970
+        return Int(seconds * 1000)
+    }
+    
+    // MARK: 时间辍
     public class func getTimeStamp() -> String {
         let date = NSDate.init(timeIntervalSinceNow: 0)
         let interval = date.timeIntervalSince1970
@@ -38,12 +46,6 @@ public class TSLUtilsHelper: NSObject {
     public class func changeIntMethod(_ targetStr: String?) -> Int {
         let tmpStr = NSString(string: targetStr ?? "0")
         return tmpStr.integerValue
-    }
-    
-    // MARK: 判断字符串是否为空
-    public class func stringIsReBlank(_ str: String?) -> Bool {
-        let chare = str?.trimmingCharacters(in: .whitespacesAndNewlines)
-        return chare?.isEmpty ?? true
     }
     
     // MARK: 字典转字符串
