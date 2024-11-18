@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TSLSwiftKit'
-  s.version          = '0.5.4'
+  s.version          = '0.5.5'
   s.summary          = 'Common methods of Swift and macro definition encapsulation.'
 
 # This description is used to generate tags and improve search results.
@@ -35,5 +35,6 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'SnapKit'
+  s.dependency 'MJRefresh'
 
 end
