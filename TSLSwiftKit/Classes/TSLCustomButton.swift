@@ -20,6 +20,8 @@ public class TSLCustomButton: UIButton {
     
     public var buttonTitle: String = ""
     
+    public var buttonTitleColor: UIColor = UIColor.black
+    
     public var buttonImageName: String = ""
     
     public var buttonIndicatior: TSLCustomButtonIndicator = .titleLeft
@@ -34,18 +36,22 @@ public class TSLCustomButton: UIButton {
     // MARK: 默认字号
     public var buttonTitleFont: UIFont = kFont(12)
     
-    public init(_ frame: CGRect, buttonTitle: String, buttonTitleFont: UIFont, buttonImageName: String, buttonIndicatior: TSLCustomButtonIndicator) {
+    public init(_ frame: CGRect, buttonTitle: String, buttonTitleFont: UIFont, buttonTitleColor: UIColor, buttonImageName: String, target: Any, selector: Selector, buttonIndicatior: TSLCustomButtonIndicator) {
         super.init(frame: frame)
     
         self.buttonTitle = buttonTitle
         
         self.buttonTitleFont = buttonTitleFont
         
+        self.buttonTitleColor = buttonTitleColor
+        
         self.buttonImageName = buttonImageName
         
         self.buttonIndicatior = buttonIndicatior
         
         self.createSubviews()
+        
+        self.addTarget(target, action: selector, for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -79,7 +85,7 @@ public class TSLCustomButton: UIButton {
     }()
     
     lazy var buttonTitleLabel: UILabel = {
-        var buttonTitleLabel = TSLUIFactory.label(self.buttonTitleFont, textColor: UIColor.black)
+        var buttonTitleLabel = TSLUIFactory.label(self.buttonTitleFont, textColor: self.buttonTitleColor)
         return buttonTitleLabel
     }()
     

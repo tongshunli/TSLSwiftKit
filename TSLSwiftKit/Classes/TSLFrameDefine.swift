@@ -17,6 +17,8 @@ public let kNavbarHeight = kStatusBarHeight + 44.0
 
 public let kTabbarHeight = (kWindow?.safeAreaInsets.bottom ?? (kIsIphoneX ? 34.0 : 0)) + 49.0
 
+public let kLineHeight = kIsIphoneX ? 1.0 : 0.5
+
 // MARK: 动画时长
 public let kAnimatedDuration = 0.4
 

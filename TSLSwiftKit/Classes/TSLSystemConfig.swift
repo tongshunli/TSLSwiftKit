@@ -39,6 +39,8 @@ public let kWindow: UIWindow? = {
 
 public let KAppDelegate = UIApplication.shared.delegate
 
+public let kSceneDelegate = UIApplication.shared.connectedScenes.first?.delegate
+
 // MARK: 获取当前版本号
 public let kAppCurrentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") ?? ""
 

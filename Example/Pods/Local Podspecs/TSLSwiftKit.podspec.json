@@ -1,8 +1,8 @@
 {
   "name": "TSLSwiftKit",
-  "version": "0.4.7",
+  "version": "0.5.3",
   "summary": "Common methods of Swift and macro definition encapsulation.",
-  "swift_versions": "4.2",
+  "swift_versions": "5.0",
   "description": "Common methods and UI controls are encapsulated to facilitate external calls",
   "homepage": "https://github.com/tongshunli/TSLSwiftKit",
   "license": {
@@ -14,10 +14,10 @@
   },
   "source": {
     "git": "https://github.com/tongshunli/TSLSwiftKit.git",
-    "tag": "0.4.7"
+    "tag": "0.5.3"
   },
   "platforms": {
-    "ios": "12.0"
+    "ios": "13.0"
   },
   "source_files": "TSLSwiftKit/Classes/**/*",
   "resource_bundles": {
@@ -30,5 +30,5 @@
 
     ]
   },
-  "swift_version": "4.2"
+  "swift_version": "5.0"
 }
