@@ -49,8 +49,6 @@ public class TSLCustomButton: UIButton {
         
         self.buttonIndicatior = buttonIndicatior
         
-        self.createSubviews()
-        
         self.addTarget(target, action: selector, for: .touchUpInside)
     }
     
@@ -61,8 +59,14 @@ public class TSLCustomButton: UIButton {
     func createSubviews() {
         self.addSubview(self.bottonHoldView)
         
-        self.bottonHoldView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+        if self.frame.size.width > 0 {
+            self.bottonHoldView.snp.makeConstraints { make in
+                make.center.equalToSuperview()
+            }
+        } else {
+            self.bottonHoldView.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
         }
         
         if self.buttonTitle.count > 0 {
@@ -71,7 +75,7 @@ public class TSLCustomButton: UIButton {
         }
          
         if self.buttonImageName.count > 0 {
-            self.buttonImageView.image = UIImage(named: self.buttonImageName)?.withRenderingMode(.automatic)
+            self.buttonImageView.image = UIImage(named: self.buttonImageName)
             
             self.bottonHoldView.addSubview(self.buttonImageView)
         }
@@ -89,18 +93,14 @@ public class TSLCustomButton: UIButton {
         return buttonTitleLabel
     }()
     
-    lazy var buttonImageView: UIImageView = {
+    public lazy var buttonImageView: UIImageView = {
         var buttonImageView = TSLUIFactory.imageView()
         return buttonImageView
     }()
     
-    public override func layoutSubviews() {
-        super.layoutSubviews()
+    public func refreshView() {
+        self.createSubviews()
         
-        self.refreshView()
-    }
-    
-    func refreshView() {
         switch self.buttonIndicatior {
         case .titleLeft:
             self.createCustomButtonIndicatorTitleLeft()
@@ -116,24 +116,24 @@ public class TSLCustomButton: UIButton {
     // MARK: 文字左,图片右
     func createCustomButtonIndicatorTitleLeft() {
         if self.buttonTitle.count > 0 && self.buttonImageName.count > 0 {
-            self.buttonTitleLabel.snp.makeConstraints { make in
+            self.buttonTitleLabel.snp.remakeConstraints { make in
                 make.top.left.height.equalToSuperview()
                 make.width.equalTo(self.buttonTitleLabel.textWidth())
             }
             
-            self.buttonImageView.snp.makeConstraints { make in
+            self.buttonImageView.snp.remakeConstraints { make in
                 make.left.equalTo(self.buttonTitleLabel.snp.right).offset(self.graphicDistance)
                 make.width.equalTo(self.buttonImageWidth)
                 make.height.equalTo(self.buttonImageHeight)
                 make.right.centerY.equalToSuperview()
             }
         } else if self.buttonTitle.count > 0 { // 只有文字
-            self.buttonTitleLabel.snp.makeConstraints { make in
+            self.buttonTitleLabel.snp.remakeConstraints { make in
                 make.edges.equalToSuperview()
                 make.width.equalTo(self.buttonTitleLabel.textWidth())
             }
         } else if self.buttonImageName.count > 0 {
-            self.buttonImageView.snp.makeConstraints { make in
+            self.buttonImageView.snp.remakeConstraints { make in
                 make.width.equalTo(self.buttonImageWidth)
                 make.height.equalTo(self.buttonImageHeight)
                 make.left.right.centerY.equalToSuperview()

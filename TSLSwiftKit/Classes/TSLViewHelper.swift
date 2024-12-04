@@ -200,4 +200,22 @@ public class TSLViewHelper: NSObject {
         return ""
     }
     
+    // MARK: 图片添加旋转动画
+    public class func rotateView(_ animationView: UIView) {
+        self.rotateView(animationView, duration: 1)
+    }
+    
+    public class func rotateView(_ animationView: UIView, duration: CFTimeInterval) {
+        self.rotateView(animationView, fromValue: 0, duration: duration)
+    }
+    
+    public class func rotateView(_ animationView: UIView, fromValue: CGFloat, duration: CFTimeInterval) {
+        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotationAnimation.fromValue = fromValue
+        rotationAnimation.toValue = M_PI * 2.0
+        rotationAnimation.duration = duration
+        rotationAnimation.repeatCount = Float.greatestFiniteMagnitude
+        animationView.layer.add(rotationAnimation, forKey: "rotationAnimation")
+        
+    }
 }
