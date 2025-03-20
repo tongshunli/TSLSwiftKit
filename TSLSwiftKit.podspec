@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TSLSwiftKit'
-  s.version          = '0.5.8'
+  s.version          = '0.5.9'
   s.summary          = 'Common methods of Swift and macro definition encapsulation.'
 
 # This description is used to generate tags and improve search results.
