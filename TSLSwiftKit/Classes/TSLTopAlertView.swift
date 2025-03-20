@@ -8,8 +8,8 @@
 import UIKit
 
 public enum TSLAlertType: Int {
-    case success = 0
-    case error = 1
+    case success
+    case error
 }
 
 class TSLTopAlertView: UIView {

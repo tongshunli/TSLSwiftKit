@@ -10,14 +10,14 @@ import Foundation
 import CommonCrypto
 
 public enum TSLValidateType: Int {
-    case email = 0
-    case phoneNum = 1
-    case carNum = 2
-    case username = 3
-    case password = 4
-    case nickname = 5
-    case URL = 6
-    case iPAddress = 7
+    case email
+    case phoneNum
+    case carNum
+    case username
+    case password
+    case nickname
+    case URL
+    case iPAddress
 }
 
 public class TSLUtilsHelper: NSObject {

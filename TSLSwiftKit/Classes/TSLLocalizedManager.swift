@@ -9,13 +9,13 @@ import UIKit
 
 // MARK: 支持语言类型
 public enum LocalizedLanguage: Int {
-    case defaultLanguage    = 0 //  跟随系统
-    case simplifiedChinese  = 1 //  简体中文
-    case traditionalChinese = 2 //  繁体中文
-    case english            = 3 //  英文
-    case tail               = 4 //  泰语
-    case spanish            = 5 //  西班牙语
-    case portugal           = 6 //  葡萄牙语
+    case defaultLanguage    //  跟随系统
+    case simplifiedChinese  //  简体中文
+    case traditionalChinese //  繁体中文
+    case english            //  英文
+    case tail               //  泰语
+    case spanish            //  西班牙语
+    case portugal           //  葡萄牙语
 }
 
 // MARK: 用户设置的语言

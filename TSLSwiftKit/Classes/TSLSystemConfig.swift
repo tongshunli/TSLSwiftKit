@@ -12,29 +12,14 @@ public let kDocumentPath = NSSearchPathForDirectoriesInDomains(.documentDirector
 public let kCachePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
 
 public let kWindow: UIWindow? = {
-    var originalKeyWindow: UIWindow?
-    
     if #available(iOS 15.0, *) {
-        let windows = UIApplication.shared.connectedScenes
+        return UIApplication.shared.connectedScenes
             .map({ $0 as? UIWindowScene })
             .compactMap({ $0 })
-            .first?.windows
-        for tmpWindow in windows ?? [] {
-            if tmpWindow.isHidden == false {
-                return tmpWindow
-            }
-        }
+            .first?.windows.first ?? UIWindow()
     } else {
-        let scene = UIApplication.shared.connectedScenes.first
-        guard let windowScene = scene as? UIWindowScene else { return originalKeyWindow }
-        let windows = windowScene.windows
-        for tmpWindow in windows {
-            if tmpWindow.isHidden == false {
-                return tmpWindow
-            }
-        }
+        return UIApplication.shared.windows.first ?? UIWindow()
     }
-    return originalKeyWindow
 }()
 
 public let KAppDelegate = UIApplication.shared.delegate

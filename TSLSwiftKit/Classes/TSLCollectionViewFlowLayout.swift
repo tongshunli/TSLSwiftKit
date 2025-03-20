@@ -8,9 +8,9 @@
 import Foundation
 
 public enum AlignType: Int {
-    case left = 0
-    case center = 1
-    case right = 2
+    case left
+    case center
+    case right
 }
 
 public class TSLCollectionViewFlowLayout: UICollectionViewFlowLayout {

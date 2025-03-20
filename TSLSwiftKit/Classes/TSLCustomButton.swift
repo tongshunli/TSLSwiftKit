@@ -10,10 +10,10 @@ import SnapKit
 
 // MARK: 支持的样式
 public enum TSLCustomButtonIndicator: Int {
-    case titleLeft = 0 // 文字左 图片右
-    case titleRight = 1 // 文字右 图片左
-    case titleTop = 2 // 文字上 图片下
-    case titleBottom = 3 // 文字下 图片上
+    case titleLeft // 文字左 图片右
+    case titleRight // 文字右 图片左
+    case titleTop // 文字上 图片下
+    case titleBottom // 文字下 图片上
 }
 
 public class TSLCustomButton: UIButton {

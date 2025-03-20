@@ -8,9 +8,9 @@
 import UIKit
 
 enum TSLBatteryStateColor: Int {
-    case normal = 0 // 正常状态
-    case charging = 1 // 充电状态
-    case warning = 2 // 电量不足
+    case normal // 正常状态
+    case charging // 充电状态
+    case warning // 电量不足
 }
 
 public class TSLBatteryView: UIView {
