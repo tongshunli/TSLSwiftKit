@@ -50,6 +50,22 @@ extension String {
         return self
     }
     
+    // MARK: 链接拼接
+    public func urlWithString(_ urlStr: String) -> String {
+        if self.contains("?") {
+            if self.hasSuffix("?") {
+                return self + urlStr
+            } else {
+                if self.hasSuffix("&") {
+                    return self + urlStr
+                } else {
+                    return self + "&\(urlStr)"
+                }
+            }
+        }
+        return self + "?\(urlStr)"
+    }
+    
     // MARK: 处理中文链接
     public func chineseUrl() -> String {
         
@@ -69,4 +85,11 @@ extension String {
         return URL(string: self.chineseUrl())
     }
     
+    // MARK: 字符串转字典
+    public func toDictionary() -> [String: Any] {
+        guard let jsonData = self.data(using: .utf8) else { return [:] }
+        
+        guard let dictionary = try? JSONSerialization.jsonObject(with: jsonData) as? [String: Any] else { return [:] }
+        return dictionary
+    }
 }

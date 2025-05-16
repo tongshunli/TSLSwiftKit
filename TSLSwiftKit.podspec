@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TSLSwiftKit'
-  s.version          = '0.5.9'
+  s.version          = '0.6.1'
   s.summary          = 'Common methods of Swift and macro definition encapsulation.'
 
 # This description is used to generate tags and improve search results.
@@ -22,10 +22,13 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'tongshunli' => '13466621196@163.com' }
-  s.source           = { :git => 'https://github.com/tongshunli/TSLSwiftKit.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/tongshunli/TSLSwiftKit.git', :tag => '0.6.0' }
+# s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
   s.ios.deployment_target = '13.0'
-
+# Pod库的构建设置排除arm64架构模拟器
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+# 主工程的构建设置排除arm64架构模拟器
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }  
   s.source_files = 'TSLSwiftKit/Classes/**/*'
   
   s.resource_bundles = {
