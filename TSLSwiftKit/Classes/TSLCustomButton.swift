@@ -17,48 +17,34 @@ public enum TSLCustomButtonIndicator: Int {
 }
 
 public class TSLCustomButton: UIButton {
-    
     public var buttonTitle: String = ""
-    
     public var buttonTitleColor: UIColor = UIColor.black
-    
     public var buttonImageName: String = ""
-    
     public var buttonIndicatior: TSLCustomButtonIndicator = .titleLeft
-    
     // MARK: 图文间距,默认10
     public var graphicDistance: CGFloat = 10.0
-      
     // MARK: 图片尺寸
     public var buttonImageWidth: CGFloat = 0.0
     public var buttonImageHeight: CGFloat = 0.0
-    
     // MARK: 默认字号
     public var buttonTitleFont: UIFont = kFont(12)
-    
+
     public init(_ frame: CGRect, buttonTitle: String, buttonTitleFont: UIFont, buttonTitleColor: UIColor, buttonImageName: String, target: Any, selector: Selector, buttonIndicatior: TSLCustomButtonIndicator) {
         super.init(frame: frame)
-    
         self.buttonTitle = buttonTitle
-        
         self.buttonTitleFont = buttonTitleFont
-        
         self.buttonTitleColor = buttonTitleColor
-        
         self.buttonImageName = buttonImageName
-        
         self.buttonIndicatior = buttonIndicatior
-        
         self.addTarget(target, action: selector, for: .touchUpInside)
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     func createSubviews() {
         self.addSubview(self.bottonHoldView)
-        
         if self.frame.size.width > 0 {
             self.bottonHoldView.snp.makeConstraints { make in
                 make.center.equalToSuperview()
@@ -68,39 +54,35 @@ public class TSLCustomButton: UIButton {
                 make.edges.equalToSuperview()
             }
         }
-        
         if self.buttonTitle.count > 0 {
             self.buttonTitleLabel.text = self.buttonTitle
             self.bottonHoldView.addSubview(self.buttonTitleLabel)
         }
-         
         if self.buttonImageName.count > 0 {
             self.buttonImageView.image = UIImage(named: self.buttonImageName)
-            
             self.bottonHoldView.addSubview(self.buttonImageView)
         }
     }
-    
+
     lazy var bottonHoldView: UIView = {
         var bottonHoldView = TSLUIFactory.view()
         bottonHoldView.isUserInteractionEnabled = false
         bottonHoldView.backgroundColor = kClearColor
         return bottonHoldView
     }()
-    
+
     lazy var buttonTitleLabel: UILabel = {
         var buttonTitleLabel = TSLUIFactory.label(self.buttonTitleFont, textColor: self.buttonTitleColor)
         return buttonTitleLabel
     }()
-    
+
     public lazy var buttonImageView: UIImageView = {
         var buttonImageView = TSLUIFactory.imageView()
         return buttonImageView
     }()
-    
+
     public func refreshView() {
         self.createSubviews()
-        
         switch self.buttonIndicatior {
         case .titleLeft:
             self.createCustomButtonIndicatorTitleLeft()
@@ -112,7 +94,7 @@ public class TSLCustomButton: UIButton {
             self.createCustomButtonIndicatorTitleBottom()
         }
     }
-    
+
     // MARK: 文字左,图片右
     func createCustomButtonIndicatorTitleLeft() {
         if self.buttonTitle.count > 0 && self.buttonImageName.count > 0 {
@@ -120,7 +102,6 @@ public class TSLCustomButton: UIButton {
                 make.top.left.height.equalToSuperview()
                 make.width.equalTo(self.buttonTitleLabel.textWidth())
             }
-            
             self.buttonImageView.snp.remakeConstraints { make in
                 make.left.equalTo(self.buttonTitleLabel.snp.right).offset(self.graphicDistance)
                 make.width.equalTo(self.buttonImageWidth)
@@ -140,29 +121,24 @@ public class TSLCustomButton: UIButton {
             }
         }
     }
-    
+
     // MARK: 文字右,图片左
     func createCustomButtonIndicatorTitleRight() {
-        
     }
-    
+
     // MARK: 文字上,图片下
     func createCustomButtonIndicatorTitleTop() {
-        
     }
-    
+
     // MARK: 文字下,图片上
     func createCustomButtonIndicatorTitleBottom() {
-        
     }
-    
+
     public var buttonTintColor: UIColor? {
         didSet {
             self.buttonTitleLabel.textColor = buttonTintColor
-            
             self.buttonImageView.image = UIImage(named: self.buttonImageName)?.withRenderingMode(.alwaysTemplate)
             self.buttonImageView.tintColor = buttonTintColor
         }
     }
-    
 }

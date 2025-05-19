@@ -10,36 +10,29 @@ import UIKit
 public class TSLNavigationController: UINavigationController {
 
     var isSwitching: Bool = false
-    
+
     public override func viewDidLoad() {
         super.viewDidLoad()
 
         self.delegate = self
-        
         self.isNavigationBarHidden = false
-        
         self.navigationBar.isHidden = true
         // Do any additional setup after loading the view.
     }
-    
+
     public override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if self.viewControllers.count > 0 {
             viewController.hidesBottomBarWhenPushed = true
         }
-        
         if animated {
             if self.isSwitching {
                 return
             }
-            
             self.isSwitching = true
         }
-        
         super.pushViewController(viewController, animated: animated)
-        
         self.isSwitching = false
     }
-    
     /*
     // MARK: - Navigation
 
@@ -53,18 +46,15 @@ public class TSLNavigationController: UINavigationController {
 }
 
 extension TSLNavigationController: UINavigationControllerDelegate {
-    
     public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         let isRootViewController = viewController == navigationController.viewControllers.first
-        
         self.interactivePopGestureRecognizer?.isEnabled = !isRootViewController
 
         self.isSwitching = false
     }
-    
+
     public override func popViewController(animated: Bool) -> UIViewController? {
         self.isSwitching = false
         return super.popViewController(animated: animated)
     }
-    
 }

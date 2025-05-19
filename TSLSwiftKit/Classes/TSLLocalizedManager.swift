@@ -29,34 +29,33 @@ public class TSLLocalizedManager: NSObject {
 
     // MARK: 语言库没有时的默认语言
     static var defaultLanguage = "en"
-    
+
     public class func stringWithKey(_ key: String) -> String {
         return TSLLocalizedManager().languageBundle?.localizedString(forKey: key, value: nil, table: "InfoPlist") ?? key
     }
-    
+
     lazy var languageBundle: Bundle? = {
         let path = Bundle.main.path(forResource: TSLLocalizedManager.getUserLanguageName(), ofType: "lproj")
         var languageBundle = Bundle(path: path ?? "")
         return languageBundle
     }()
-    
+
     // MARK: 用户本地语言,如果语言包中没有,返回默认值
     public class func getUserLanguageName() -> String {
         let userLanguageName = UserDefaults.standard.string(forKey: TSLUserLanguage)
-        
         return userLanguageName ?? TSLLocalizedManager.stringFromLocalizedLanguage(.defaultLanguage)
     }
-    
+
     // MARK: 设置默认语言
     public class func setUpDefaultLanguage(_ language: String) {
         self.defaultLanguage = language
     }
-    
+
     // MARK: 获取当前语言
     public class func getUserLanguage() -> LocalizedLanguage {
         return self.localizedLanguageFromString(TSLLocalizedManager.getUserLanguageName())
     }
-    
+
     public class func stringFromLocalizedLanguage(_ language: LocalizedLanguage) -> String {
         switch language {
         case .english:
@@ -80,7 +79,7 @@ public class TSLLocalizedManager: NSObject {
             return TSLLocalizedManager.stringFromLocalizedLanguage(tmpLanguage)
         }
     }
-    
+
     public class func localizedLanguageFromString(_ language: String) -> LocalizedLanguage {
         switch language {
         case "en":
@@ -104,5 +103,4 @@ public class TSLLocalizedManager: NSObject {
     public class func setLanguage(_ language: LocalizedLanguage) {
         UserDefaults.standard.setValue(stringFromLocalizedLanguage(language), forKey: TSLUserLanguage)
     }
-    
 }

@@ -10,19 +10,15 @@ import UIKit
 public class TSLTopAlertManager: NSObject {
 
     static var topAlertView: TSLTopAlertView?
-    
+
     public class func showAlertWithType(_ type: TSLAlertType, alertTitle: String) {
-     
         if alertTitle.count == 0 {
             return
         }
-        
         if self.topAlertView?.alertTitle == alertTitle { // 该文案已经提示
             return
         }
-        
         self.topAlertView?.hiddenAlertView()
-        
         DispatchQueue.main.async {
             self.topAlertView = TSLTopAlertView.init()
             self.topAlertView?.alertTitle = alertTitle
@@ -30,5 +26,4 @@ public class TSLTopAlertManager: NSObject {
             self.topAlertView?.showAlertView()
         }
     }
-    
 }

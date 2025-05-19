@@ -15,7 +15,7 @@ public class TSLUIFactory: UIView {
         view.backgroundColor = kClearColor
         return view
     }
-    
+
     public class func label(_ textFont: UIFont, textColor: UIColor?) -> UILabel {
         let label = UILabel.init()
         label.font = textFont
@@ -23,22 +23,21 @@ public class TSLUIFactory: UIView {
         label.textColor = textColor ?? UIColor.black
         return label
     }
-    
+
     public class func imageView() -> UIImageView {
         let imageView = UIImageView.init()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         return imageView
     }
-    
+
     public class func button(_ target: Any, selector: Selector) -> UIButton {
         let button = UIButton.init(type: .custom)
         button.addTarget(target, action: selector, for: .touchUpInside)
         button.clipsToBounds = true
-        button.adjustsImageWhenHighlighted = false
         return button
     }
-    
+
     public class func button(_ textFont: UIFont, textColor: UIColor, target: Any, selector: Selector) -> UIButton {
         let button = button(target, selector: selector)
         button.titleLabel?.font = textFont
@@ -46,6 +45,14 @@ public class TSLUIFactory: UIView {
         return button
     }
     
+    public class func buttonConfiguration(_ padding: CGFloat, imageName: String) -> UIButton.Configuration {
+        var configuration = UIButton.Configuration.plain()
+        configuration.imagePadding = padding
+        configuration.imagePlacement = .leading
+        configuration.image = UIImage(named: imageName)
+        return configuration
+    }
+
     public class func textField(_ textFont: UIFont, textColor: UIColor, placeholder: String) -> UITextField {
         let textField = UITextField.init()
         textField.font = textFont
@@ -54,7 +61,7 @@ public class TSLUIFactory: UIView {
         textField.clearButtonMode = .whileEditing
         return textField
     }
-    
+
     public class func scrollView() -> UIScrollView {
         let scrollView = UIScrollView.init()
         scrollView.showsVerticalScrollIndicator = false
@@ -62,7 +69,7 @@ public class TSLUIFactory: UIView {
         scrollView.backgroundColor = kClearColor
         return scrollView
     }
-    
+
     public class func textView(_ textFont: UIFont, textColor: UIColor) -> UITextView {
         let textView = UITextView.init()
         textView.font = textFont
@@ -71,7 +78,7 @@ public class TSLUIFactory: UIView {
         textView.showsHorizontalScrollIndicator = false
         return textView
     }
-    
+
     public class func tableView(_ style: UITableView.Style) -> UITableView {
         let tableView = UITableView.init(frame: CGRect.zero, style: style)
         tableView.showsHorizontalScrollIndicator = false
@@ -86,7 +93,7 @@ public class TSLUIFactory: UIView {
         tableView.backgroundColor = kClearColor
         return tableView
     }
-    
+
     public class func collectionView(_ flyout: UICollectionViewFlowLayout) -> UICollectionView {
         let collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: flyout)
         collectionView.showsHorizontalScrollIndicator = false
@@ -95,7 +102,7 @@ public class TSLUIFactory: UIView {
         collectionView.backgroundColor = kClearColor
         return collectionView
     }
-    
+
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

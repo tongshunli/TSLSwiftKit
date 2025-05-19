@@ -27,53 +27,33 @@ public func kColorWithRGB16(_ rgb: Int, alpha: CGFloat) -> UIColor {
 
 // MARK: 字符串色值
 public func kColorWithHexString(_ color: String, alpha: CGFloat) -> UIColor {
-    
     var cString = color.removeSpaces()
-    
     if cString.count < 6 {
         return kClearColor
     }
-    
     if cString.hasPrefix("#") {
         let temStr: NSString = cString as NSString
-        
         cString = temStr.substring(from: 1)
     } else if cString.hasPrefix("0X") {
         let temStr: NSString = cString as NSString
-        
         cString = temStr.substring(from: 2)
     }
-    
     if cString.count != 6 {
         return kClearColor
     }
-    
     var range = NSRange(location: 0, length: 2)
-    
     let tmpStr2: NSString = cString as NSString
-    
     let rString = tmpStr2.substring(with: range)
-    
     range = NSRange(location: 2, length: 2)
-    
     let gString = tmpStr2.substring(with: range)
-    
     range = NSRange(location: 4, length: 2)
-    
     let bString = tmpStr2.substring(with: range)
-    
     var red: UInt64 = 0
-    
     var green: UInt64 = 0
-    
     var blue: UInt64 = 0
-    
     Scanner(string: rString).scanHexInt64(&red)
-    
     Scanner(string: gString).scanHexInt64(&green)
-    
     Scanner(string: bString).scanHexInt64(&blue)
-    
     return kColorRGBAlpha(CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: alpha)
 }
 
@@ -82,4 +62,3 @@ public func kColorWithHexString(_ color: String) -> UIColor {
 }
 
 public let kClearColor = UIColor.clear
-

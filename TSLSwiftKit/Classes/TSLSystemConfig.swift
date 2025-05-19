@@ -13,13 +13,14 @@ public let kCachePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .u
 
 public let kWindow: UIWindow? = {
     if #available(iOS 15.0, *) {
-        return UIApplication.shared.connectedScenes
-            .map({ $0 as? UIWindowScene })
-            .compactMap({ $0 })
-            .first?.windows.first ?? UIWindow()
+        guard let windows = UIApplication.shared.connectedScenes.map({ $0 as? UIWindowScene }).compactMap({ $0 }).first?.windows else { return UIWindow() }
+        for tmpWindow in windows where tmpWindow.isHidden == false {
+            return tmpWindow
+        }
     } else {
-        return UIApplication.shared.windows.first ?? UIWindow()
+        return UIApplication.shared.windows.first
     }
+    return UIWindow()
 }()
 
 public let KAppDelegate = UIApplication.shared.delegate
@@ -54,4 +55,3 @@ public let kIsIphoneX = (abs(max(kScreenWidth, kScreenHeight) / min(kScreenWidth
 
 // MARK: 当前暗黑模式状态
 public let kIsDarkMode = UIScreen.main.traitCollection.userInterfaceStyle == .dark
-
