@@ -37,20 +37,28 @@ public class TSLUIFactory: UIView {
         button.clipsToBounds = true
         return button
     }
+    
+    public class func button(_ padding: CGFloat, imageName: String, edgeInsets: UIEdgeInsets, target: Any, selector: Selector) -> UIButton {
+        let button = self.button(target, selector: selector)
+        if #available(iOS 15.0, *) {
+            var configuration = UIButton.Configuration.plain()
+            configuration.imagePadding = padding
+            configuration.imagePlacement = .leading
+            configuration.image = UIImage(named: imageName)
+            button.configuration = configuration
+        } else {
+            button.setImage(UIImage(named: imageName), for: .normal)
+            button.imageEdgeInsets = edgeInsets
+            // Fallback on earlier versions
+        }
+        return button
+    }
 
     public class func button(_ textFont: UIFont, textColor: UIColor, target: Any, selector: Selector) -> UIButton {
-        let button = button(target, selector: selector)
+        let button = self.button(target, selector: selector)
         button.titleLabel?.font = textFont
         button.setTitleColor(textColor, for: .normal)
         return button
-    }
-    
-    public class func buttonConfiguration(_ padding: CGFloat, imageName: String) -> UIButton.Configuration {
-        var configuration = UIButton.Configuration.plain()
-        configuration.imagePadding = padding
-        configuration.imagePlacement = .leading
-        configuration.image = UIImage(named: imageName)
-        return configuration
     }
 
     public class func textField(_ textFont: UIFont, textColor: UIColor, placeholder: String) -> UITextField {
