@@ -11,18 +11,53 @@ public let kScreenWidth = UIScreen.main.bounds.size.width
 
 public let kScreenHeight = UIScreen.main.bounds.size.height
 
-public let kStatusBarHeight = kWindow?.safeAreaInsets.top ?? (kIsIphoneX ? 44.0 : 20.0)
+public func kStatusBarHeight() -> CGFloat {
+    guard let topHeight = kWindow?.safeAreaInsets.top else {
+        if kIsIphoneX == true {
+            return 44.0
+        } else {
+            return 20.0
+        }
+    }
+    if topHeight > 0 {
+        return topHeight
+    } else {
+        if kIsIphoneX == true {
+            return 44.0
+        } else {
+            return 20.0
+        }
+    }
+}
 
-public let kNavbarHeight = kStatusBarHeight + 44.0
+public let kNavbarHeight = kStatusBarHeight() + 44.0
 
-public let kTabbarHeight = (kWindow?.safeAreaInsets.bottom ?? (kIsIphoneX ? 34.0 : 0)) + 49.0
+public func kTabBarOffsetHeight() -> CGFloat {
+    guard let botHeight = kWindow?.safeAreaInsets.bottom else {
+        if kIsIphoneX == true {
+            return 34.0
+        }
+        return 0
+    }
+    if botHeight > 0 {
+        return botHeight
+    } else {
+        if kIsIphoneX == true {
+            return 34.0
+        }
+    }
+    return 0
+}
 
+public let kTabBarHeight = kTabBarOffsetHeight() + 49
+
+/// 线条高度
 public let kLineHeight = kIsIphoneX ? 1.0 : 0.5
 
-// MARK: 动画时长
+/// 动画时长
 public let kAnimatedDuration = 0.4
 
-// MARK: 根据比例缩放
+/// 根据比例缩放
 public func kGeometricHeight(_ width: CGFloat, proportionWidth: CGFloat, proportionHeight: CGFloat) -> CGFloat {
     return floor(width * proportionHeight / proportionWidth)
 }

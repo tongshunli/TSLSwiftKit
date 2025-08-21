@@ -7,18 +7,25 @@
 
 import UIKit
 
-// MARK: 支持语言类型
+/// 支持语言类型
 public enum LocalizedLanguage: Int {
-    case defaultLanguage    //  跟随系统
-    case simplifiedChinese  //  简体中文
-    case traditionalChinese //  繁体中文
-    case english            //  英文
-    case tail               //  泰语
-    case spanish            //  西班牙语
-    case portugal           //  葡萄牙语
+    ///  跟随系统
+    case defaultLanguage
+    ///  简体中文
+    case simplifiedChinese
+    ///  繁体中文
+    case traditionalChinese
+    ///  英文
+    case english
+    ///  泰语
+    case tail
+    ///  西班牙语
+    case spanish
+    ///  葡萄牙语
+    case portugal
 }
 
-// MARK: 用户设置的语言
+/// 用户设置的语言
 let TSLUserLanguage = "TSLUserLanguage"
 
 public func TSLLocalizedString(_ key: String) -> String {
@@ -27,7 +34,7 @@ public func TSLLocalizedString(_ key: String) -> String {
 
 public class TSLLocalizedManager: NSObject {
 
-    // MARK: 语言库没有时的默认语言
+    /// 语言库没有时的默认语言
     static var defaultLanguage = "en"
 
     public class func stringWithKey(_ key: String) -> String {
@@ -40,18 +47,18 @@ public class TSLLocalizedManager: NSObject {
         return languageBundle
     }()
 
-    // MARK: 用户本地语言,如果语言包中没有,返回默认值
+    /// 用户本地语言,如果语言包中没有,返回默认值
     public class func getUserLanguageName() -> String {
         let userLanguageName = UserDefaults.standard.string(forKey: TSLUserLanguage)
         return userLanguageName ?? TSLLocalizedManager.stringFromLocalizedLanguage(.defaultLanguage)
     }
 
-    // MARK: 设置默认语言
+    /// 设置默认语言
     public class func setUpDefaultLanguage(_ language: String) {
         self.defaultLanguage = language
     }
 
-    // MARK: 获取当前语言
+    /// 获取当前语言
     public class func getUserLanguage() -> LocalizedLanguage {
         return self.localizedLanguageFromString(TSLLocalizedManager.getUserLanguageName())
     }
@@ -99,7 +106,7 @@ public class TSLLocalizedManager: NSObject {
         }
     }
 
-    // MARK: 设置APP语言
+    /// 设置APP语言
     public class func setLanguage(_ language: LocalizedLanguage) {
         UserDefaults.standard.setValue(stringFromLocalizedLanguage(language), forKey: TSLUserLanguage)
     }

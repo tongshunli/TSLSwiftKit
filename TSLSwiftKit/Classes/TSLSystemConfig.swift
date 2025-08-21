@@ -12,46 +12,53 @@ public let kDocumentPath = NSSearchPathForDirectoriesInDomains(.documentDirector
 public let kCachePath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
 
 public let kWindow: UIWindow? = {
+    var window: UIWindow?
     if #available(iOS 15.0, *) {
         guard let windows = UIApplication.shared.connectedScenes.map({ $0 as? UIWindowScene }).compactMap({ $0 }).first?.windows else { return UIWindow() }
         for tmpWindow in windows where tmpWindow.isHidden == false {
-            return tmpWindow
+            window = tmpWindow
         }
     } else {
-        return UIApplication.shared.windows.first
+        window = UIApplication.shared.windows.first
     }
-    return UIWindow()
+    return window
 }()
 
 public let KAppDelegate = UIApplication.shared.delegate
 
 public let kSceneDelegate = UIApplication.shared.connectedScenes.first?.delegate
 
-// MARK: 获取当前版本号
+/// 获取当前版本号
 public let kAppCurrentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") ?? ""
 
-// MARK: app名称
+/// app Logo
+public func kAppLogo() -> String {
+    guard let logos = Bundle.main.object(forInfoDictionaryKey: "CFBundleIconFiles") as? [String] else { return "" }
+    return logos.last ?? ""
+}
+
+/// app名称
 public let kAppName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") ?? ""
 
-// MARK: app包名
+/// app包名
 public let kBundleIdentifier = Bundle.main.bundleIdentifier ?? ""
 
-// MARK: 获取设备系统号
+/// 获取设备系统号
 public let kSystemVersion = UIDevice.current.systemVersion
 
-// MARK: UUID
+/// UUID
 public let kUUID = UIDevice.current.identifierForVendor?.uuidString
 
-// MARK: 设备类型
+/// 设备类型
 public let kPhoneModel = UIDevice.current.model
 
-// MARK: iphone设备
+/// iphone设备
 public let kIsIphone = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? true : false
 
-// MARK: ipad设备
+/// ipad设备
 public let kIsIpad = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad ? true : false
 
 public let kIsIphoneX = (abs(max(kScreenWidth, kScreenHeight) / min(kScreenWidth, kScreenHeight) - 896 / 414) < 0.01 || abs(max(kScreenWidth, kScreenHeight) / min(kScreenWidth, kScreenHeight) - 812 / 375) < 0.01)
 
-// MARK: 当前暗黑模式状态
+/// 当前暗黑模式状态
 public let kIsDarkMode = UIScreen.main.traitCollection.userInterfaceStyle == .dark

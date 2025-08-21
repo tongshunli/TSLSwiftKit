@@ -8,13 +8,19 @@
 import UIKit
 
 public enum TSLAlertType: Int {
+    /// 成功
     case success
+    /// 失败
     case error
+    /// 加载中
+    case loading
 }
 
 class TSLTopAlertView: UIView {
-    // MARK: 已经隐藏
+    /// 是否已经隐藏
     var alertViewIsHidden: Bool = false
+    /// 持续时长
+    var alertDuration: CGFloat = 1.0
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,6 +42,7 @@ class TSLTopAlertView: UIView {
         self.addSubview(self.alertBottonView)
         self.alertBottonView.addSubview(self.alertImageView)
         self.alertBottonView.addSubview(self.alertTitleLabel)
+        self.alertBottonView.addSubview(self.indicatorView)
     }
 
     lazy var alertTitleLabel: UILabel = {
@@ -78,24 +85,32 @@ class TSLTopAlertView: UIView {
 
     func removeAlertView() {
         self.alertTitle = ""
+        if self.alertType == .loading {
+            self.indicatorView.stopAnimating()
+        }
         self.removeFromSuperview()
     }
 
-    // MARK: 提示语
+    /// 提示语
     var alertTitle: String? {
         didSet {
             self.alertTitleLabel.text = alertTitle
         }
     }
 
-    // MARK: 成功或失败
+    /// 成功或失败
     var alertType: TSLAlertType? {
         didSet {
-            if alertType == .success {
+            switch alertType {
+            case .success:
                 self.alertImageView.image = Bundle.getBundleImageWithName("tips_success")
-            }
-            if alertType == .error {
+            case .error:
                 self.alertImageView.image = Bundle.getBundleImageWithName("tips_error")
+            case .loading:
+                self.indicatorView.isHidden = false
+                self.indicatorView.startAnimating()
+            default:
+                break
             }
         }
     }
@@ -105,7 +120,7 @@ class TSLTopAlertView: UIView {
         UIView.animate(withDuration: kAnimatedDuration, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0) { [unowned self] in
             self.alertBottonView.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: kNavbarHeight)
         } completion: { _ in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: { [unowned self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.alertDuration, execute: { [unowned self] in
                 self.hiddenAlertView()
             })
         }
@@ -118,4 +133,13 @@ class TSLTopAlertView: UIView {
         }
         return hitView
     }
+
+    lazy var indicatorView: UIActivityIndicatorView = {
+        let indicatorView = UIActivityIndicatorView(style: .medium)
+        indicatorView.frame = CGRect(x: 20, y: kNavbarHeight - 20, width: 20, height: 20)
+        indicatorView.color = kColorRGB(35, green: 35, blue: 35)
+        indicatorView.hidesWhenStopped = true
+        indicatorView.isHidden = true
+        return indicatorView
+    }()
 }

@@ -9,13 +9,16 @@ import Foundation
 import UIKit
 
 public enum AlignType: Int {
+    /// 左对齐
     case left
+    /// 剧中对齐
     case center
+    /// 右对齐
     case right
 }
 
 public class TSLCollectionViewFlowLayout: UICollectionViewFlowLayout {
-    // MARK: 在居中对齐的时候需要知道这行所有cell的宽度总和
+    /// 在居中对齐的时候需要知道这行所有cell的宽度总和
     var sumCellWidth = 0.0
 
     override convenience init() {
@@ -23,7 +26,7 @@ public class TSLCollectionViewFlowLayout: UICollectionViewFlowLayout {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
 
     convenience init(_ cellType: AlignType) {
@@ -83,7 +86,7 @@ public class TSLCollectionViewFlowLayout: UICollectionViewFlowLayout {
         return layoutAttributes
     }
 
-    // MARK: 调整属于同一行的cell的位置frame
+    /// 调整属于同一行的cell的位置frame
     func cellFrameWith(_ layoutAttributes: NSMutableArray) {
         var nowWidth = 0.0
         switch self.cellType {
@@ -114,7 +117,6 @@ public class TSLCollectionViewFlowLayout: UICollectionViewFlowLayout {
             layoutAttributes.removeAllObjects()
         case .right:
             guard let collectionViewWidth = self.collectionView?.frame.size.width else { return }
-
             nowWidth = collectionViewWidth - self.sectionInset.right
             for index in (layoutAttributes.count - 1)...0 {
                 let attributes = layoutAttributes[index] as? UICollectionViewLayoutAttributes

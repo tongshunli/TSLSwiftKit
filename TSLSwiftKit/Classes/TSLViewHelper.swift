@@ -10,16 +10,16 @@ import CoreGraphics
 
 public class TSLViewHelper: NSObject {
 
-    // MARK: 获取RootController
+    /// 获取RootController
     public class func getWindowRootController() -> UIViewController {
         var rootController = kWindow?.rootViewController
         while rootController?.presentedViewController != nil {
             rootController = rootController?.presentedViewController
         }
-        return rootController!
+        return rootController ?? UIViewController()
     }
 
-    // MARK: 获取当前Controller
+    /// 获取当前Controller
     public class func getCurrentViewController() -> UIViewController? {
         var result = kWindow?.rootViewController
         while result?.presentedViewController != nil {
@@ -33,8 +33,24 @@ public class TSLViewHelper: NSObject {
         }
         return result ?? nil
     }
+    
+    ///  获取当前NavigationController
+    public class func getCurrentNavigationController() -> UINavigationController? {
+        guard let rootViewController = kWindow?.rootViewController else { return nil }
+        
+        if rootViewController.isKind(of: UINavigationController.self) {
+            return rootViewController as? UINavigationController
+        }
+        if rootViewController.isKind(of: UITabBarController.self) {
+            guard let tabBarController = rootViewController as? UITabBarController else { return nil }
+            if tabBarController.selectedViewController?.isKind(of: UINavigationController.self) == true {
+                return tabBarController.selectedViewController as? UINavigationController
+            }
+        }
+        return nil
+    }
 
-    // MARK: 计算字符串高
+    /// 计算字符串高度
     public class func getStringHeight(_ string: String, maxWidth: CGFloat, contentFont: UIFont, lineHeight: CGFloat) -> CGFloat {
         if string == "" {
             return 0.0
@@ -44,7 +60,13 @@ public class TSLViewHelper: NSObject {
         return floor(string.boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin, .usesFontLeading], attributes: [.font: contentFont, .paragraphStyle: paragraphStyle], context: nil).height) + 1.0
     }
 
-    // MARK: 计算字符串宽
+    /// 计算富文本高度
+    public class func getAttributedStringHeight(_ attributedString: NSAttributedString?, maxWidth: CGFloat) -> CGFloat {
+        guard let attributedString = attributedString else { return 0.0 }
+        return floor(attributedString.boundingRect(with: CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin, .usesFontLeading], context: nil).height) + 1.0
+    }
+
+    /// 计算字符串宽
     public class func getStringWidth(_ string: String, contentFont: UIFont) -> CGFloat {
         if string == "" {
             return 0.0
@@ -52,30 +74,16 @@ public class TSLViewHelper: NSObject {
         return floor(string.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin, .usesFontLeading], attributes: [.font: contentFont], context: nil).width) + 1.0
     }
 
-    // MARK: 设置边角圆弧
-    public class func setCornerWithLeftTopCorner(_ leftTop: CGFloat, rightTop: CGFloat, bottemLeft: CGFloat, bottemRight: CGFloat, view: UIView, frame: CGRect) {
-        let width = frame.size.width
-        let height = frame.size.height
-        let maskPath = UIBezierPath()
-        maskPath.lineWidth = 1.0
-        maskPath.lineCapStyle = .round
-        maskPath.lineJoinStyle = .round
-        maskPath.move(to: CGPoint(x: bottemRight, y: height)) // 左下角
-        maskPath.addLine(to: CGPoint(x: width - bottemRight, y: height))
-        maskPath.addQuadCurve(to: CGPoint(x: width, y: height - bottemRight), controlPoint: CGPoint(x: width, y: height)) // 右下角的圆弧
-        maskPath.addLine(to: CGPoint(x: width, y: height)) // 右边直线
-        maskPath.addQuadCurve(to: CGPoint(x: width - rightTop, y: 0), controlPoint: CGPoint.init(x: width, y: 0)) // 右上角圆弧
-        maskPath.addLine(to: CGPoint.init(x: leftTop, y: 0)) // 顶部直线
-        maskPath.addQuadCurve(to: CGPoint(x: 0, y: leftTop), controlPoint: CGPoint(x: 0, y: 0)) // 左上角圆弧
-        maskPath.addLine(to: CGPoint(x: 0, y: height - bottemLeft)) // 左边直线
-        maskPath.addQuadCurve(to: CGPoint(x: bottemLeft, y: height), controlPoint: CGPoint(x: 0, y: height))
+    /// 设置边角圆弧
+    public class func setCornerWithCorner(_ rectCorner: UIRectCorner, view: UIView, size: CGSize, viewFrame: CGRect) {
+        let maskPath = UIBezierPath(roundedRect: viewFrame, byRoundingCorners: [rectCorner], cornerRadii: size)
         let maskLayer = CAShapeLayer()
-        maskLayer.frame = frame
+        maskLayer.frame = viewFrame
         maskLayer.path = maskPath.cgPath
         view.layer.mask = maskLayer
     }
 
-    // MARK: 将图片转换成字符串
+    /// 将图片转换成字符串
     public class func getBase64StringWithImageData(_ imageData: Data?) -> String {
         if imageData == nil {
             return ""
@@ -88,7 +96,7 @@ public class TSLViewHelper: NSObject {
         return self.imageToString(self.imageWithImage(fixImage))
     }
 
-    // MARK: 更正图片方向
+    /// 更正图片方向
     class func fixOrientation(_ image: UIImage) -> UIImage {
         if image.imageOrientation == .up {
             return image
@@ -153,7 +161,7 @@ public class TSLViewHelper: NSObject {
         return UIImage(cgImage: cgimage)
     }
 
-    // MARK: 绘制一张全新的图片
+    /// 绘制一张全新的图片
     class func imageWithImage(_ image: UIImage) -> UIImage {
         UIGraphicsBeginImageContext(CGSize.init(width: image.size.width, height: image.size.height))
         image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
@@ -162,7 +170,7 @@ public class TSLViewHelper: NSObject {
         return newImage!
     }
 
-    // MARK: 图片信息转字符串
+    /// 图片信息转字符串
     class func imageToString(_ image: UIImage) -> String {
         let imageData = image.jpegData(compressionQuality: 0.7)
         if imageData != nil {
@@ -171,7 +179,7 @@ public class TSLViewHelper: NSObject {
         return ""
     }
 
-    // MARK: 图片添加旋转动画
+    /// 图片添加旋转动画
     public class func rotateView(_ animationView: UIView) {
         self.rotateView(animationView, duration: 1)
     }
@@ -187,5 +195,17 @@ public class TSLViewHelper: NSObject {
         rotationAnimation.duration = duration
         rotationAnimation.repeatCount = Float.greatestFiniteMagnitude
         animationView.layer.add(rotationAnimation, forKey: "rotationAnimation")
+    }
+    
+    /// 视图转换为图片
+    public func viewToImage(view: UIView) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+        defer { UIGraphicsEndImageContext() }
+        if UIGraphicsGetCurrentContext() != nil {
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            return image
+        }
+        return nil
     }
 }

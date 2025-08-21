@@ -8,15 +8,20 @@
 import UIKit
 
 enum TSLBatteryStateColor: Int {
-    case normal // 正常状态
-    case charging // 充电状态
-    case warning // 电量不足
+    /// 正常状态
+    case normal
+    /// 充电状态
+    case charging
+    /// 电量不足
+    case warning
 }
 
 public class TSLBatteryView: UIView {
-
-    let batteryWidth = 25.0 // 电池宽度
-    let batteryLineWidth = 1.0 // 电池线宽
+    /// 电池宽度
+    let batteryWidth = 25.0
+    /// 电池线宽
+    let batteryLineWidth = 1.0
+    /// 定时器
     var timer: Timer?
 
     override init(frame: CGRect) {
@@ -87,7 +92,7 @@ public class TSLBatteryView: UIView {
         return batteryLabel
     }()
 
-    // MARK: 电量状态发生变化
+    /// 电量状态发生变化
     func batteryLevelChanged() {
         let device = UIDevice.current
         device.isBatteryMonitoringEnabled = true
@@ -107,7 +112,7 @@ public class TSLBatteryView: UIView {
         self.batteryView.frame = frame
     }
 
-    // MARK: 当前时间
+    /// 当前时间
     func updateTime() {
         let now = Date()
         let calendar = Calendar.current
@@ -125,7 +130,7 @@ public class TSLBatteryView: UIView {
         }
     }
 
-    // MARK: 电池状态发生变化
+    /// 电池状态发生变化
     func batteryStateChanged() {
         switch UIDevice.current.batteryState {
         case .unplugged:

@@ -9,6 +9,7 @@ import UIKit
 
 public class TSLUIFactory: UIView {
 
+    /// 初始化UIView
     public class func view() -> UIView {
         let view = UIView.init()
         view.clipsToBounds = true
@@ -16,6 +17,7 @@ public class TSLUIFactory: UIView {
         return view
     }
 
+    /// 初始化UILabel
     public class func label(_ textFont: UIFont, textColor: UIColor?) -> UILabel {
         let label = UILabel.init()
         label.font = textFont
@@ -24,36 +26,38 @@ public class TSLUIFactory: UIView {
         return label
     }
 
+    /// 初始化UIImageView
     public class func imageView() -> UIImageView {
         let imageView = UIImageView.init()
         imageView.clipsToBounds = true
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         return imageView
     }
 
+    /// 初始化UIButton
     public class func button(_ target: Any, selector: Selector) -> UIButton {
-        let button = UIButton.init(type: .custom)
+        let button = UIButton(type: .custom)
         button.addTarget(target, action: selector, for: .touchUpInside)
         button.clipsToBounds = true
-        return button
-    }
-    
-    public class func button(_ padding: CGFloat, imageName: String, edgeInsets: UIEdgeInsets, target: Any, selector: Selector) -> UIButton {
-        let button = self.button(target, selector: selector)
-        if #available(iOS 15.0, *) {
-            var configuration = UIButton.Configuration.plain()
-            configuration.imagePadding = padding
-            configuration.imagePlacement = .leading
-            configuration.image = UIImage(named: imageName)
-            button.configuration = configuration
-        } else {
-            button.setImage(UIImage(named: imageName), for: .normal)
-            button.imageEdgeInsets = edgeInsets
-            // Fallback on earlier versions
-        }
+        button.adjustsImageWhenHighlighted = false
+        button.backgroundColor = kClearColor
         return button
     }
 
+    /// 初始化UIButton
+    public class func button(_ imageName: String, edgeInsets: UIEdgeInsets, target: Any, selector: Selector) -> UIButton {
+        return self.button(imageName, imageModel: .automatic, edgeInsets: edgeInsets, target: target, selector: selector)
+    }
+    
+    /// 初始化UIButton
+    public class func button(_ imageName: String, imageModel: UIImage.RenderingMode, edgeInsets: UIEdgeInsets, target: Any, selector: Selector) -> UIButton {
+        let button = self.button(target, selector: selector)
+        button.setImage(UIImage(named: imageName)?.withRenderingMode(imageModel), for: .normal)
+        button.imageEdgeInsets = edgeInsets
+        return button
+    }
+
+    /// 初始化UIButton
     public class func button(_ textFont: UIFont, textColor: UIColor, target: Any, selector: Selector) -> UIButton {
         let button = self.button(target, selector: selector)
         button.titleLabel?.font = textFont
@@ -61,6 +65,7 @@ public class TSLUIFactory: UIView {
         return button
     }
 
+    /// 初始化UITextField
     public class func textField(_ textFont: UIFont, textColor: UIColor, placeholder: String) -> UITextField {
         let textField = UITextField.init()
         textField.font = textFont
@@ -70,6 +75,7 @@ public class TSLUIFactory: UIView {
         return textField
     }
 
+    /// 初始化UIScrollVIew
     public class func scrollView() -> UIScrollView {
         let scrollView = UIScrollView.init()
         scrollView.showsVerticalScrollIndicator = false
@@ -78,6 +84,7 @@ public class TSLUIFactory: UIView {
         return scrollView
     }
 
+    /// 初始化UITextView
     public class func textView(_ textFont: UIFont, textColor: UIColor) -> UITextView {
         let textView = UITextView.init()
         textView.font = textFont
@@ -87,6 +94,7 @@ public class TSLUIFactory: UIView {
         return textView
     }
 
+    /// 初始化UITableView
     public class func tableView(_ style: UITableView.Style) -> UITableView {
         let tableView = UITableView.init(frame: CGRect.zero, style: style)
         tableView.showsHorizontalScrollIndicator = false
@@ -102,6 +110,7 @@ public class TSLUIFactory: UIView {
         return tableView
     }
 
+    /// 初始化UICollectionView
     public class func collectionView(_ flyout: UICollectionViewFlowLayout) -> UICollectionView {
         let collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: flyout)
         collectionView.showsHorizontalScrollIndicator = false

@@ -9,10 +9,14 @@ import Foundation
 import UIKit
 
 public enum TSLGradientChangeDirection: Int {
-    case level              // 水平方向上渐变
-    case vertical           // 竖直方向上渐变
-    case upwardDiagonalLine // 向下对角线渐变
-    case downDiagonalLine   // 向上对角线渐变
+    /// 水平方向上渐变
+    case level
+    /// 竖直方向上渐变
+    case vertical
+    /// 向下对角线渐变
+    case upwardDiagonalLine
+    /// 向上对角线渐变
+    case downDiagonalLine
 }
 
 extension UIColor {

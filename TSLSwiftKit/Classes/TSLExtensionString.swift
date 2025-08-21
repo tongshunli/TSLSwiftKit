@@ -27,12 +27,12 @@ extension String {
         return from ..< toEnd
     }
 
-    // MARK: 删除字符串中的空格
+    /// 删除字符串中的空格
     public func removeSpaces() -> String {
         return self.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
     }
 
-    // MARK: 拼接URL
+    /// 拼接URL
     public func splicingURL(_ dict: [String: Any]) -> String {
         var tmpStr = self.chineseUrl()
         if dict.count > 0 {
@@ -45,7 +45,7 @@ extension String {
         return self
     }
 
-    // MARK: 链接拼接
+    /// 链接拼接
     public func urlWithString(_ urlStr: String) -> String {
         if self.contains("?") {
             if self.hasSuffix("?") {
@@ -61,7 +61,7 @@ extension String {
         return self + "?\(urlStr)"
     }
 
-    // MARK: 处理中文链接
+    /// 处理中文链接
     public func chineseUrl() -> String {
         if containChinese() {
             return self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? self
@@ -69,20 +69,34 @@ extension String {
         return self
     }
 
-    // MARK: 包含中文信息
+    /// 包含中文信息
     public func containChinese() -> Bool {
         return self.range(of: "\\p{Han}", options: .regularExpression) != nil
     }
 
-    // MARK: 返回一个处理好的URL
+    /// 返回一个处理好的URL
     public func getUrl() -> URL? {
         return URL(string: self.chineseUrl())
     }
 
-    // MARK: 字符串转字典
+    /// 字符串转字典
     public func toDictionary() -> [String: Any] {
         guard let jsonData = self.data(using: .utf8) else { return [:] }
         guard let dictionary = try? JSONSerialization.jsonObject(with: jsonData) as? [String: Any] else { return [:] }
         return dictionary
+    }
+    
+    /// 获取范围内字符串
+    public func safeSubstringWithRange(_ range: NSRange) -> String {
+        if range.location > self.count {
+            return ""
+        }
+        if range.length > self.count {
+            return ""
+        }
+        if range.location + range.length > self.count {
+            return ""
+        }
+        return NSString(string: self).substring(with: range)
     }
 }

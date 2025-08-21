@@ -33,6 +33,18 @@ public class TSLNavigationController: UINavigationController {
         super.pushViewController(viewController, animated: animated)
         self.isSwitching = false
     }
+    
+    public override var childForStatusBarStyle: UIViewController? {
+        return self.topViewController
+    }
+    
+    public override var childForStatusBarHidden: UIViewController? {
+        return self.topViewController
+    }
+    
+    public override var childForHomeIndicatorAutoHidden: UIViewController? {
+        return self.topViewController
+    }
     /*
     // MARK: - Navigation
 

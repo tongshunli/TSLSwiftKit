@@ -9,13 +9,13 @@ import UIKit
 import Accelerate
 
 extension UIImage {
-    // MARK: 颜色透明度、半径、色彩饱和度
+    /// 颜色透明度、半径、色彩饱和度
     public func imgWithLightAlpha(_ alpha: CGFloat, radius: CGFloat, colorSaturationFactor: CGFloat) -> UIImage {
         let tintColor = kColorRGBAlpha(180, green: 180, blue: 180, alpha: alpha)
         return self.imgBluredWithRadius(radius, tintColor: tintColor, saturationDeltaFactor: colorSaturationFactor, maskImage: nil)
     }
 
-    // MARK: 内部方法,核心代码,封装了毛玻璃效果 参数:半径,颜色,色彩饱和度
+    /// 内部方法,核心代码,封装了毛玻璃效果 参数:半径,颜色,色彩饱和度
     func imgBluredWithRadius(_ blurRadius: CGFloat, tintColor: UIColor, saturationDeltaFactor: CGFloat, maskImage: UIImage?) -> UIImage {
         let imageRect = CGRect(origin: CGPoint.zero, size: self.size)
         var effectImage = self
@@ -84,5 +84,26 @@ extension UIImage {
         let outputImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return outputImage!
+    }
+
+    /// 图片切圆角
+    public func imageByFillet(_ cornerRadius: CGFloat) -> UIImage {
+        if cornerRadius <= 0 {
+            return self
+        }
+        UIGraphicsBeginImageContextWithOptions(self.size, false, UIScreen.main.scale)
+        UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height), cornerRadius: cornerRadius).addClip()
+        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        let image = UIGraphicsImageRendererContext().currentImage.withRenderingMode(self.renderingMode)
+        UIGraphicsEndImageContext()
+        return image
+    }
+
+    /// 调整图片大小
+    public func adjustImage(_ size: CGSize) -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: size)
+        return renderer.image { _ in
+            self.draw(in: CGRect(origin: .zero, size: size))
+        }
     }
 }
